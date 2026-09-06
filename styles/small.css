@@ -1,0 +1,329 @@
+/* ===================================================================
+   small.css — mobile-first base styles, valid from 320px and up
+   Design concept: a code-editor / IDE look, fitting a web dev course
+=================================================================== */
+
+:root {
+  --bg: #1e2130;
+  --panel: #262b3d;
+  --panel-alt: #2d3348;
+  --border: #3a4058;
+  --text: #e4e6f1;
+  --text-muted: #9aa3c4;
+  --accent-purple: #8b7fd6;
+  --accent-green: #6fcf97;
+  --accent-amber: #e0a458;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --radius: 6px;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Skip link for keyboard/screen-reader accessibility */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent-purple);
+  color: var(--bg);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-radius: 0 0 var(--radius) 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--panel);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.hamburger {
+  width: 32px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--accent-purple);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10.5px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10.5px) rotate(-45deg);
+}
+
+.primary-nav {
+  order: 3;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.primary-nav.open {
+  max-height: 220px;
+}
+
+.primary-nav ul {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+
+.primary-nav a {
+  display: block;
+  padding: 0.9rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+}
+
+.primary-nav a:hover,
+.primary-nav a:focus-visible {
+  color: var(--accent-green);
+}
+
+.primary-nav a.active {
+  color: var(--accent-purple);
+  border-left-color: var(--accent-purple);
+  padding-left: 0.6rem;
+}
+
+/* ---------- Main layout ---------- */
+main {
+  padding: 1.25rem 1rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+main > h1 {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  color: var(--text);
+  border-bottom: 2px solid var(--accent-purple);
+  padding-bottom: 0.5rem;
+}
+
+.about-me,
+.student-photo,
+.courses {
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.about-me h2,
+.student-photo h2,
+.courses h2 {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  background-color: var(--panel-alt);
+  color: var(--accent-amber);
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-me p {
+  padding: 1rem;
+  color: var(--text-muted);
+  max-width: 65ch;
+}
+
+.student-photo {
+  text-align: center;
+}
+
+.student-photo img {
+  width: 60%;
+  max-width: 280px;
+  margin: 1.25rem auto;
+  border-radius: 4px;
+}
+
+/* ---------- Courses section ---------- */
+.course-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 1rem 1rem 0;
+}
+
+.filter-btn {
+  flex: 1 1 80px;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background-color: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible {
+  color: var(--text);
+  border-color: var(--accent-purple);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background-color: var(--accent-purple);
+  color: var(--bg);
+  border-color: var(--accent-purple);
+  font-weight: 700;
+}
+
+.credit-total {
+  padding: 0.85rem 1rem 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.credit-total #creditTotal {
+  color: var(--accent-green);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  padding: 1rem;
+}
+
+.course-card {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  background-color: var(--accent-amber);
+  color: var(--bg);
+  border: 1px solid transparent;
+  cursor: default;
+}
+
+.course-card.completed {
+  background-color: transparent;
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.course-card:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1rem;
+  background-color: var(--panel);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-muted);
+}
+
+.social-links svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  color: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+.copyright,
+#lastModified {
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hamburger span,
+  .primary-nav {
+    transition: none;
+  }
+}

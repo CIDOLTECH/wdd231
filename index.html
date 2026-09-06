@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD 231: Web Frontend Development I | Peter Ella Bisong</title>
+    <meta name="description"
+        content="Course home page for WDD 231: W01 Assignment: Course Home Page, showcasing coursework in the WDD 231: Web Frontend Development I." />
+    <meta name="author" content="Peter Ella Bisong" />
+
+    <link rel="icon" href="images/logo.png" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="styles/normalize.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles/small.css" />
+    <link rel="stylesheet" href="styles/larger.css" />
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/courses.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="brand">
+            <img src="images/logo.png" alt="" width="40" height="40" />
+            <span class="brand-name">Peter Ella Bisong</span>
+        </div>
+
+        <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="primaryNav"
+            aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+            <ul>
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+                <li><a href="chamber.html">Chamber</a></li>
+                <li><a href="final.html">Final</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <h1>Home</h1>
+
+        <section class="about-me" aria-labelledby="aboutHeading">
+            <h2 id="aboutHeading">About Me</h2>
+            <p>
+                I'm Peter Ella Bisong, a Software Development student at BYU-Idaho, based in Abuja, Nigeria,
+                working through the Web and Computer Programming degree. This course is
+                where I'm building the habits I'll use across every project that follows:
+                writing clean, semantic HTML, styling with plain CSS, and using JavaScript to
+                make pages respond to the people using them.
+            </p>
+        </section>
+
+        <section class="student-photo" aria-labelledby="photoHeading">
+            <h2 id="photoHeading">Student Photo</h2>
+            <img src="images/student-photo.png" alt="Placeholder portrait of Peter Ella Bisong" width="320"
+                height="320" />
+        </section>
+
+        <section class="courses" aria-labelledby="coursesHeading">
+            <h2 id="coursesHeading">Web Certificate Courses</h2>
+
+            <div class="course-filters" role="group" aria-label="Filter courses by subject">
+                <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="CSE" aria-pressed="false">CSE</button>
+                <button class="filter-btn" data-filter="WDD" aria-pressed="false">WDD</button>
+            </div>
+
+            <p class="credit-total">
+                The total credits for courses listed above is <span id="creditTotal">0</span>
+            </p>
+
+            <div class="course-list" id="courseList"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <ul class="social-links" aria-label="Social media links">
+            <li>
+                <a href="https://github.com/CIDOLTECH" target="_blank" rel="noopener" aria-label="GitHub profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/cidolworld" target="_blank" rel="noopener"
+                    aria-label="LinkedIn profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.49 1c1.38 0 2.49 1.12 2.49 2.5ZM.24 8.25h4.5V23H.24V8.25ZM8.5 8.25h4.31v2.02h.06c.6-1.14 2.07-2.34 4.26-2.34 4.55 0 5.39 3 5.39 6.9V23h-4.5v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23H8.5V8.25Z" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://x.com/peterellabisong" target="_blank" rel="noopener" aria-label="X profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M18.24 2H21l-6.55 7.49L22.2 22h-6.36l-4.98-6.52L5.13 22H2.36l7.01-8.01L1.8 2h6.52l4.5 5.96L18.24 2Zm-1.11 18.2h1.77L7.02 3.7H5.11l12.02 16.5Z" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <p class="copyright">&copy; <span id="currentyear"></span> Peter Ella Bisong &bull; Abuja, Nigeria</p>
+
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>

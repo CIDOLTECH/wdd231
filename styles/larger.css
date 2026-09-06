@@ -1,0 +1,84 @@
+/* ===================================================================
+   larger.css — overrides for wider viewports, loaded after small.css
+=================================================================== */
+
+@media (min-width: 700px) {
+  /* Horizontal flex navigation replaces the hamburger menu */
+  .hamburger {
+    display: none;
+  }
+
+  .primary-nav {
+    order: 0;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .primary-nav ul {
+    flex-direction: row;
+    border-top: none;
+    margin-top: 0;
+    gap: 0.25rem;
+  }
+
+  .primary-nav a {
+    border-bottom: none;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .primary-nav a.active {
+    padding-left: 0.8rem;
+    border-bottom-color: var(--accent-purple);
+    background-color: rgba(139, 127, 214, 0.12);
+  }
+
+  /* Two-column layout: About Me + Student Photo share a row,
+     Courses spans the full width beneath them */
+  main {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "about photo"
+      "courses courses";
+    align-items: start;
+  }
+
+  .about-me {
+    grid-area: about;
+  }
+
+  .student-photo {
+    grid-area: photo;
+  }
+
+  .courses {
+    grid-area: courses;
+  }
+
+  .course-filters {
+    flex-wrap: nowrap;
+  }
+
+  .course-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .site-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1000px) {
+  main > h1 {
+    font-size: 2rem;
+  }
+
+  .course-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
