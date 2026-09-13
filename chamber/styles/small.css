@@ -360,7 +360,7 @@ textarea:focus-visible,
   gap: var(--space-4);
 }
 
-.site-footer h3 {
+.site-footer h2 {
   color: #fff;
   font-size: 1rem;
   margin-bottom: var(--space-2);
