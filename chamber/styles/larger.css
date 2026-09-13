@@ -1,0 +1,94 @@
+/* =========================================================
+   CIDOL World Incorporation — larger-viewport overrides
+   Breakpoints: 600px (large phone/small tablet), 900px
+   (tablet/laptop), 1200px (desktop). Mobile styles in
+   small.css remain the default below 600px.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ~600px and up: nav opens horizontally, two-column cards
+   --------------------------------------------------------- */
+@media (min-width: 37.5em) {
+  .directory {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .directory-toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ---------------------------------------------------------
+   ~900px and up: full desktop nav, three-column directory
+   --------------------------------------------------------- */
+@media (min-width: 56.25em) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .primary-nav {
+    position: static;
+    border-bottom: none;
+    background: transparent;
+    display: block;
+  }
+
+  .primary-nav__list {
+    flex-direction: row;
+    padding: 0;
+    gap: var(--space-4);
+  }
+
+  .primary-nav__list a {
+    padding: var(--space-1) 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .primary-nav__list a:hover,
+  .primary-nav__list a[aria-current="page"] {
+    border-bottom-color: var(--color-ochre);
+  }
+
+  .page-intro {
+    padding-block: var(--space-5);
+  }
+
+  h1 { font-size: 2.4rem; }
+
+  .directory {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .directory[data-view="list"] {
+    grid-template-columns: 1fr;
+  }
+
+  .directory[data-view="list"] .member-card {
+    grid-template-columns: 140px 1fr auto;
+    gap: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .directory[data-view="list"] .member-card__tagline {
+    display: block;
+  }
+
+  .site-footer .wrapper {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   ~1200px and up: wide desktop, four-column directory
+   --------------------------------------------------------- */
+@media (min-width: 75em) {
+  .directory {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .directory[data-view="list"] {
+    grid-template-columns: 1fr;
+  }
+}

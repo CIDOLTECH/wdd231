@@ -1,0 +1,74 @@
+{
+  "members": [
+    {
+      "name": "Zenith Cloud Systems",
+      "address": "14 Aminu Kano Crescent, Wuse 2, Abuja",
+      "phone": "(0809) 214-7731",
+      "url": "https://www.zenithcloud.example.com",
+      "image": "zenith-cloud-systems.svg",
+      "level": 3,
+      "founded": 2014,
+      "tagline": "Enterprise cloud migration and managed hosting"
+    },
+    {
+      "name": "Kaduna Fibre Networks",
+      "address": "22 Mississippi Street, Maitama, Abuja",
+      "phone": "(0803) 552-9910",
+      "url": "https://www.kadunafibre.example.com",
+      "image": "kaduna-fibre-networks.svg",
+      "level": 2,
+      "founded": 2017,
+      "tagline": "Metro fibre connectivity for growing businesses"
+    },
+    {
+      "name": "Aso Rock Data Centers",
+      "address": "5 Constitution Avenue, Central Business District, Abuja",
+      "phone": "(0701) 448-2260",
+      "url": "https://www.asorockdata.example.com",
+      "image": "aso-rock-data-centers.svg",
+      "level": 3,
+      "founded": 2011,
+      "tagline": "Tier III colocation and disaster-recovery hosting"
+    },
+    {
+      "name": "BrightWave Digital Agency",
+      "address": "9 Aba Road, Garki II, Abuja",
+      "phone": "(0812) 330-6674",
+      "url": "https://www.brightwavedigital.example.com",
+      "image": "brightwave-digital-agency.svg",
+      "level": 1,
+      "founded": 2021,
+      "tagline": "Branding, web design, and social campaigns"
+    },
+    {
+      "name": "Nova Circuit Technologies",
+      "address": "31 Ademola Adetokunbo Crescent, Wuse 2, Abuja",
+      "phone": "(0906) 771-4482",
+      "url": "https://www.novacircuit.example.com",
+      "image": "nova-circuit-technologies.svg",
+      "level": 2,
+      "founded": 2016,
+      "tagline": "Custom software and embedded systems consulting"
+    },
+    {
+      "name": "Sahel Software Collective",
+      "address": "3 Gwarinpa Estate Road, Gwarinpa, Abuja",
+      "phone": "(0817) 265-3390",
+      "url": "https://www.sahelsoftware.example.com",
+      "image": "sahel-software-collective.svg",
+      "level": 1,
+      "founded": 2022,
+      "tagline": "Freelance developer cooperative and bootcamp"
+    },
+    {
+      "name": "Gateway Telecom Abuja",
+      "address": "18 Ibrahim Babangida Way, Utako, Abuja",
+      "phone": "(0700) 428-9010",
+      "url": "https://www.gatewaytelecom.example.com",
+      "image": "gateway-telecom-abuja.svg",
+      "level": 3,
+      "founded": 2009,
+      "tagline": "Voice, data, and unified communications for enterprise"
+    }
+  ]
+}
