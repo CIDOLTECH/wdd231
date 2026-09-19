@@ -18,6 +18,20 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  /* Home page: events and weather sit side by side once there's room. */
+  .home-grid {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
+
+  .spotlights__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__content {
+    padding: var(--space-4);
+  }
 }
 
 /* ---------------------------------------------------------
@@ -77,6 +91,24 @@
 
   .site-footer .wrapper {
     grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  /* Home page: three spotlight cards across, hero gets more breathing room. */
+  .spotlights__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .spotlight-card {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight-card img {
+    aspect-ratio: 3 / 2;
+    height: auto;
+  }
+
+  .hero__content {
+    padding: var(--space-5) var(--space-4);
   }
 }
 

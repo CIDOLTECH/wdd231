@@ -2,29 +2,7 @@
 // Course objective 2: variables, functions, arrays/objects, template
 // literals, and an ES module.
 // Course objective 3: event handling + dynamic DOM manipulation.
-
-// ---------------------------------------------------------------
-// Mobile navigation toggle
-// ---------------------------------------------------------------
-function initNavToggle() {
-  const toggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector("#primaryNav");
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  // Close the menu automatically once a visitor picks a link,
-  // so it doesn't stay open after navigating on a small screen.
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-}
+// Nav toggle now lives in scripts/nav.js, shared by every page.
 
 // ---------------------------------------------------------------
 // Member directory: fetch + render
@@ -123,7 +101,6 @@ function initViewSwitch() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initNavToggle();
   initViewSwitch();
   loadMembers();
 });

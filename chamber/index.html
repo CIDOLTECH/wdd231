@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+    Course objective 1: valid, semantic HTML5.
+    <head> carries the required title/description/author, favicon,
+    and Facebook (Open Graph) social meta.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CIDOL World Incorporation — Abuja IT &amp; Digital Communications Chamber</title>
+  <meta name="description"
+    content="CIDOL World Incorporation is Abuja's chamber for IT and digital-communications businesses — member directory, events, and networking.">
+  <meta name="author" content="Peter Ella Bisong">
+
+  <!-- Facebook / Open Graph social meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CIDOL World Incorporation — Abuja IT &amp; Digital Communications Chamber">
+  <meta property="og:description"
+    content="CIDOL World Incorporation is Abuja's chamber for IT and digital-communications businesses — member directory, events, and networking.">
+  <meta property="og:image" content="https://cidoltech.github.io/wdd231/images/og-image.jpg">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/index.html">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="images/favicon.ico">
+
+  <!-- Fonts: two families, limited weights to keep payload small -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet">
+
+  <!-- CSS: reset first, then mobile-first base, then larger-viewport overrides -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER + NAV (shared across every page) ============ -->
+  <header class="site-header">
+    <div class="wrapper site-header__bar">
+      <a class="brand" href="index.html" aria-label="CIDOL World Incorporation home">
+        <img src="images/logo.svg" alt="CIDOL World Incorporation">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav"
+        aria-label="Toggle navigation menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="primary-nav__list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="discover.html">Discover Abuja</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <img src="images/hero.svg"
+        alt="Stylized illustration of Abuja's skyline and Aso Rock lit up at dusk, overlaid with a circuit-board pattern"
+        class="hero__image" width="1600" height="700">
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1>Powering Abuja's Digital Economy</h1>
+        <p>CIDOL World Incorporation connects IT and digital-communications businesses across Abuja with the resources,
+          visibility, and partnerships they need to grow.</p>
+        <a class="button button--cta" href="join.html">Join the Chamber</a>
+      </div>
+    </section>
+
+    <!-- ============ EVENTS + WEATHER ============ -->
+    <div class="wrapper home-grid">
+      <section class="panel events" aria-labelledby="eventsHeading">
+        <h2 id="eventsHeading">Upcoming Events</h2>
+        <ul class="event-list">
+          <li class="event-card">
+            <p class="event-card__date">Oct 14, 2026</p>
+            <h3 class="event-card__title">Founders' Networking Mixer</h3>
+            <p>An evening of introductions and open conversation for new and prospective members at the Wuse 2
+              innovation hub.</p>
+          </li>
+          <li class="event-card">
+            <p class="event-card__date">Oct 29, 2026</p>
+            <h3 class="event-card__title">Digital Skills Workshop</h3>
+            <p>A hands-on half-day session on cloud fundamentals, led by member volunteers from Zenith Cloud Systems.
+            </p>
+          </li>
+          <li class="event-card">
+            <p class="event-card__date">Nov 11, 2026</p>
+            <h3 class="event-card__title">Quarterly Member Showcase</h3>
+            <p>Gold and Silver members demo new products and services to the full CIDOL World membership.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel weather" aria-labelledby="weatherHeading">
+        <h2 id="weatherHeading">Abuja Weather</h2>
+        <p class="status-text" id="weatherStatus" role="status" hidden></p>
+
+        <div class="weather__current">
+          <img id="currentIcon" src="images/weather-placeholder.svg" alt="" width="64" height="64">
+          <div>
+            <p class="weather__temp" id="currentTemp">—</p>
+            <p class="weather__desc" id="currentDesc">Loading current conditions…</p>
+          </div>
+        </div>
+
+        <h3 class="forecast-heading">3-Day Forecast</h3>
+        <ul class="forecast-list" id="forecastList" aria-label="Three day temperature forecast"></ul>
+      </section>
+    </div>
+
+    <!-- ============ MEMBER SPOTLIGHTS ============ -->
+    <section class="spotlights wrapper" aria-labelledby="spotlightsHeading">
+      <h2 id="spotlightsHeading">Member Spotlights</h2>
+      <p class="status-text" id="spotlightStatus" role="status" hidden></p>
+      <div class="spotlights__grid" id="spotlights" aria-label="Featured Gold and Silver members"></div>
+    </section>
+  </main>
+
+
+  <!-- ============ FOOTER (shared across every page) ============ -->
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div>
+        <h2>Contact CIDOL World Incorporation</h2>
+        <address>
+          <span>12 Yakubu Gowon Crescent, Asokoro, Abuja, Nigeria</span>
+          <a href="tel:+2348001234567">+234 800 123 4567</a>
+          <a href="mailto:info@cidolworld.com">info@cidolworld.com</a>
+        </address>
+      </div>
+
+      <div>
+        <h2>Connect</h2>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="CIDOL World on Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9.5c0-.3.2-.5.5-.5Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="CIDOL World on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M6.5 9H4v11h2.5V9ZM5.25 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM20 14.2c0-3-1.6-4.4-3.8-4.4-1.7 0-2.5 1-2.9 1.6V9H10.7v11h2.6v-6.1c0-.6.1-1.2.9-1.7.4-.3.9-.4 1.3-.4 1.2 0 1.9.8 1.9 2.3V20H20v-5.8Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="CIDOL World on X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Site Info</h2>
+        <div class="site-footer__legal">
+          <p>Peter Ella Bisong &middot; WDD 231</p>
+          <p>&copy; <span id="year"></span> CIDOL World Incorporation</p>
+          <p id="lastModified"></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/getdates.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/home.js"></script>
+</body>
+
+</html>
