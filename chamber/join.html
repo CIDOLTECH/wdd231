@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+    Course objective 1: valid, semantic HTML5.
+    <head> carries the required title/description/author, favicon,
+    and Facebook (Open Graph) social meta.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Join — CIDOL World Incorporation</title>
+  <meta name="description"
+    content="Apply for CIDOL World Incorporation membership — choose an NP, Bronze, Silver, or Gold membership level and submit your application online.">
+  <meta name="author" content="Peter Ella Bisong">
+
+  <!-- Facebook / Open Graph social meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Join — CIDOL World Incorporation">
+  <meta property="og:description"
+    content="Apply for CIDOL World Incorporation membership — choose an NP, Bronze, Silver, or Gold membership level and submit your application online.">
+  <meta property="og:image" content="https://cidoltech.github.io/wdd231/images/og-image.jpg">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/join.html">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="images/favicon.ico">
+
+  <!-- Fonts: two families, limited weights to keep payload small -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet">
+
+  <!-- CSS: reset first, then mobile-first base, then larger-viewport overrides -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER + NAV (shared across every page) ============ -->
+  <header class="site-header">
+    <div class="wrapper site-header__bar">
+      <a class="brand" href="index.html" aria-label="CIDOL World Incorporation home">
+        <img src="images/logo.svg" alt="CIDOL World Incorporation">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav"
+        aria-label="Toggle navigation menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="primary-nav__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html" aria-current="page">Join</a></li>
+          <li><a href="discover.html">Discover Abuja</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ PAGE INTRO ============ -->
+    <section class="page-intro">
+      <div class="wrapper">
+        <h1>Join CIDOL World Incorporation</h1>
+        <p>Apply for membership below. Every level welcomes IT and digital-communications businesses building Abuja's
+          tech economy.</p>
+      </div>
+    </section>
+
+    <div class="wrapper join-layout">
+      <!-- ============ APPLICATION FORM ============ -->
+      <form class="join-form" method="get" action="thankyou.html">
+        <h2 class="visually-hidden">Membership application</h2>
+
+        <label class="field">
+          <span class="field__label">First name <span class="field__required" aria-hidden="true">*</span></span>
+          <input type="text" name="firstName" title="Your first name" autocomplete="given-name" required>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Last name <span class="field__required" aria-hidden="true">*</span></span>
+          <input type="text" name="lastName" title="Your last name" autocomplete="family-name" required>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Organizational title</span>
+          <input type="text" name="orgTitle"
+            title="Your title within your organization: letters, spaces, and hyphens only, at least 7 characters"
+            autocomplete="organization-title" pattern="[A-Za-z\s-]{7,}">
+          <span class="field__hint">Letters, spaces, and hyphens only — at least 7 characters (e.g. "Lead
+            Developer").</span>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Email address <span class="field__required" aria-hidden="true">*</span></span>
+          <input type="email" name="email" title="Your email address" autocomplete="email"
+            placeholder="name@example.com" required>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Mobile phone <span class="field__required" aria-hidden="true">*</span></span>
+          <input type="tel" name="mobile" title="Your mobile phone number" autocomplete="tel" required>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Business/organization name <span class="field__required"
+              aria-hidden="true">*</span></span>
+          <input type="text" name="businessName" title="Your business or organization's name"
+            autocomplete="organization" required>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Membership level <span class="field__required" aria-hidden="true">*</span></span>
+          <select name="membershipLevel" title="Select a membership level" required>
+            <option value="" selected disabled>Choose a level…</option>
+            <option value="np">NP Membership (no fee)</option>
+            <option value="bronze">Bronze Membership</option>
+            <option value="silver">Silver Membership</option>
+            <option value="gold">Gold Membership</option>
+          </select>
+        </label>
+
+        <label class="field field--wide">
+          <span class="field__label">Business/organization description</span>
+          <textarea name="description" title="A short description of your business or organization" rows="4"></textarea>
+        </label>
+
+        <input type="hidden" name="timestamp" id="timestamp">
+
+        <button type="submit" class="button button--cta">Submit Application</button>
+      </form>
+
+      <!-- ============ MEMBERSHIP LEVEL CARDS ============ -->
+      <aside class="membership-cards" aria-labelledby="membershipCardsHeading">
+        <h2 id="membershipCardsHeading" class="visually-hidden">Membership levels</h2>
+        <ul class="membership-cards__list">
+          <li class="membership-card membership-card--np">
+            <h3>NP Membership</h3>
+            <p class="membership-card__price">No fee</p>
+            <p>For registered non-profit organizations serving Abuja's tech community.</p>
+            <button type="button" class="membership-card__link" data-modal-target="modalNp">
+              Learn more <span class="visually-hidden">about NP Membership</span>
+            </button>
+          </li>
+          <li class="membership-card membership-card--bronze">
+            <h3>Bronze Membership</h3>
+            <p class="membership-card__price">Entry level</p>
+            <p>Directory listing and access to networking events.</p>
+            <button type="button" class="membership-card__link" data-modal-target="modalBronze">
+              Learn more <span class="visually-hidden">about Bronze Membership</span>
+            </button>
+          </li>
+          <li class="membership-card membership-card--silver">
+            <h3>Silver Membership</h3>
+            <p class="membership-card__price">Growing businesses</p>
+            <p>Everything in Bronze, plus event discounts and training access.</p>
+            <button type="button" class="membership-card__link" data-modal-target="modalSilver">
+              Learn more <span class="visually-hidden">about Silver Membership</span>
+            </button>
+          </li>
+          <li class="membership-card membership-card--gold">
+            <h3>Gold Membership</h3>
+            <p class="membership-card__price">Full partnership</p>
+            <p>Everything in Silver, plus home page spotlight placement and priority advertising.</p>
+            <button type="button" class="membership-card__link" data-modal-target="modalGold">
+              Learn more <span class="visually-hidden">about Gold Membership</span>
+            </button>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- ============ MEMBERSHIP BENEFIT MODALS ============ -->
+    <dialog id="modalNp" class="benefits-modal">
+      <h2>NP Membership — No Fee</h2>
+      <ul>
+        <li>Directory listing for your registered non-profit</li>
+        <li>Invitations to all chamber networking events</li>
+        <li>Access to the shared job board and volunteer requests</li>
+      </ul>
+      <button type="button" class="button modal-close" autofocus>Close</button>
+    </dialog>
+
+    <dialog id="modalBronze" class="benefits-modal">
+      <h2>Bronze Membership</h2>
+      <ul>
+        <li>Full directory listing with logo and contact details</li>
+        <li>Invitations to all chamber networking events</li>
+        <li>Member-rate pricing on workshops</li>
+      </ul>
+      <button type="button" class="button modal-close" autofocus>Close</button>
+    </dialog>
+
+    <dialog id="modalSilver" class="benefits-modal">
+      <h2>Silver Membership</h2>
+      <ul>
+        <li>Everything included in Bronze Membership</li>
+        <li>20% discount on event tickets and workshop fees</li>
+        <li>Eligible for random home page "Member Spotlight" placement</li>
+        <li>Access to member-only training sessions</li>
+      </ul>
+      <button type="button" class="button modal-close" autofocus>Close</button>
+    </dialog>
+
+    <dialog id="modalGold" class="benefits-modal">
+      <h2>Gold Membership</h2>
+      <ul>
+        <li>Everything included in Silver Membership</li>
+        <li>Priority "Member Spotlight" placement on the home page</li>
+        <li>Featured placement at the top of the member directory</li>
+        <li>Free booth at the Quarterly Member Showcase</li>
+        <li>Complimentary tickets to all chamber events</li>
+      </ul>
+      <button type="button" class="button modal-close" autofocus>Close</button>
+    </dialog>
+  </main>
+
+
+  <!-- ============ FOOTER (shared across every page) ============ -->
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div>
+        <h2>Contact CIDOL World Incorporation</h2>
+        <address>
+          <span>12 Yakubu Gowon Crescent, Asokoro, Abuja, Nigeria</span>
+          <a href="tel:+2348001234567">+234 800 123 4567</a>
+          <a href="mailto:info@cidolworld.com">info@cidolworld.com</a>
+        </address>
+      </div>
+
+      <div>
+        <h2>Connect</h2>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="CIDOL World on Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9.5c0-.3.2-.5.5-.5Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="CIDOL World on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M6.5 9H4v11h2.5V9ZM5.25 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM20 14.2c0-3-1.6-4.4-3.8-4.4-1.7 0-2.5 1-2.9 1.6V9H10.7v11h2.6v-6.1c0-.6.1-1.2.9-1.7.4-.3.9-.4 1.3-.4 1.2 0 1.9.8 1.9 2.3V20H20v-5.8Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="CIDOL World on X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Site Info</h2>
+        <div class="site-footer__legal">
+          <p>Peter Ella Bisong &middot; WDD 231</p>
+          <p>&copy; <span id="year"></span> CIDOL World Incorporation</p>
+          <p id="lastModified"></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/getdates.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/join.js"></script>
+</body>
+
+</html>

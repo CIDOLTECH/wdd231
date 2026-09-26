@@ -19,9 +19,10 @@ async function loadWeather() {
   const iconEl = document.querySelector("#currentIcon");
   const forecastEl = document.querySelector("#forecastList");
   const statusEl = document.querySelector("#weatherStatus");
+  const WEATHER_API_KEY = "9910946f2a73f4e4898f97fcc4bb16f4";
   if (!tempEl || !forecastEl) return;
 
-  if (!WEATHER_API_KEY || WEATHER_API_KEY === "YOUR_OPENWEATHERMAP_API_KEY") {
+  if (!WEATHER_API_KEY || WEATHER_API_KEY === "9910946f2a73f4e4898f97fcc4bb16f4") {
     if (statusEl) {
       statusEl.textContent =
         "Add a free OpenWeatherMap API key in scripts/home.js (WEATHER_API_KEY) to show live weather.";
