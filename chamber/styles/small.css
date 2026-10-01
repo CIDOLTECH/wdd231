@@ -1,6 +1,5 @@
 /* =========================================================
    CIDOL World Incorporation — base styles (mobile-first)
-   Course objective 1: semantic HTML5 + maintainable CSS.
    This file holds the styles that apply from the smallest
    phone up. larger.css adds/overrides rules at wider
    breakpoints only — nothing here should need duplicating.
@@ -29,6 +28,7 @@
   --color-green-bg: #e3f1eb;
   --color-slate: #55637a;
   --color-slate-bg: #e9edf2;
+  --color-bronze: #8a5a2b;
 
   /* ---- Type ---------------------------------------------------------- */
   --font-display: "Space Grotesk", "Segoe UI", Arial, sans-serif;
@@ -126,8 +126,6 @@ textarea:focus-visible,
 
 /* ---------------------------------------------------------------------
    Header + primary nav
-   Objective 3 lives here too: the nav toggle button below is wired
-   up with an event listener in scripts/directory.js.
    --------------------------------------------------------------------- */
 .site-header {
   background: var(--color-surface);
@@ -216,198 +214,6 @@ textarea:focus-visible,
   color: #cfd8e8;
   max-width: 40ch;
 }
-
-/* ---------------------------------------------------------------------
-   Directory toolbar
-   --------------------------------------------------------------------- */
-.directory-toolbar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding-block: var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.directory-toolbar__count {
-  color: var(--color-ink-soft);
-  font-size: 0.95rem;
-}
-
-.view-switch {
-  display: inline-flex;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: 3px;
-  align-self: flex-start;
-  background: var(--color-surface);
-}
-
-.view-switch button {
-  padding: var(--space-1) var(--space-3);
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--color-ink-soft);
-}
-
-.view-switch button[aria-pressed="true"] {
-  background: var(--color-indigo-800);
-  color: #fff;
-}
-
-/* ---------------------------------------------------------------------
-   Member directory — grid + list views
-   --------------------------------------------------------------------- */
-.directory {
-  padding-block: var(--space-4);
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: 1fr;
-}
-
-.directory[data-view="list"] .member-card {
-  display: grid;
-  grid-template-columns: 88px 1fr;
-  align-items: center;
-}
-
-.directory[data-view="list"] .member-card__figure {
-  aspect-ratio: 1;
-}
-
-.directory[data-view="list"] .member-card__tagline,
-.directory[data-view="list"] .member-card__meta {
-  display: none;
-}
-
-.member-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.member-card__figure {
-  aspect-ratio: 3 / 2;
-  background: var(--color-indigo-100);
-}
-
-.member-card__figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.member-card__body {
-  padding: var(--space-3);
-  display: grid;
-  gap: var(--space-1);
-}
-
-.member-card__top {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: var(--space-2);
-}
-
-.member-card__name {
-  font-size: 1.05rem;
-  margin: 0;
-}
-
-.badge {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.badge--gold { background: var(--color-ochre-bg); color: var(--color-ochre-text); }
-.badge--silver { background: var(--color-slate-bg); color: var(--color-slate); }
-.badge--member { background: var(--color-green-bg); color: var(--color-green); }
-
-.member-card__tagline {
-  font-size: 0.92rem;
-}
-
-.member-card__meta {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-1) 0 0;
-  font-size: 0.88rem;
-  color: var(--color-ink-soft);
-  display: grid;
-  gap: 4px;
-}
-
-.member-card__meta a { font-weight: 600; }
-
-/* ---------------------------------------------------------------------
-   Footer
-   --------------------------------------------------------------------- */
-.site-footer {
-  background: var(--color-indigo-900);
-  color: #cfd8e8;
-  margin-top: var(--space-5);
-}
-
-.site-footer .wrapper {
-  padding-block: var(--space-4);
-  display: grid;
-  gap: var(--space-4);
-}
-
-.site-footer h2 {
-  color: #fff;
-  font-size: 1rem;
-  margin-bottom: var(--space-2);
-}
-
-.site-footer address {
-  font-style: normal;
-  display: grid;
-  gap: 6px;
-  font-size: 0.92rem;
-}
-
-.site-footer a { color: #cfd8e8; }
-.site-footer a:hover { color: var(--color-ochre-text); }
-
-.social-links {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.social-links a {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid #3c4a68;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-links a:hover { border-color: var(--color-ochre); }
-
-.site-footer__legal {
-  border-top: 1px solid #2b3958;
-  padding-top: var(--space-3);
-  font-size: 0.85rem;
-  display: grid;
-  gap: 4px;
-}
-
-/* Loading / error text for the fetch()-driven directory list. */
-.status-text {
-  padding: var(--space-3);
-  color: var(--color-ink-soft);
-}
-
-.status-text[hidden] { display: none; }
 
 /* ---------------------------------------------------------------------
    Buttons
@@ -514,6 +320,12 @@ textarea:focus-visible,
   align-items: center;
   gap: var(--space-2);
   margin: var(--space-2) 0 var(--space-3);
+  min-height: 64px;
+}
+
+.weather__current img {
+  width: 48px;
+  height: 48px;
 }
 
 .weather__temp {
@@ -546,6 +358,11 @@ textarea:focus-visible,
   justify-items: center;
   gap: 4px;
   text-align: center;
+}
+
+.forecast-day img {
+  width: 32px;
+  height: 32px;
 }
 
 .forecast-day__label {
@@ -615,4 +432,536 @@ textarea:focus-visible,
   color: var(--color-ink-soft);
   display: grid;
   gap: 3px;
+}
+
+/* ---------------------------------------------------------------------
+   Directory toolbar
+   --------------------------------------------------------------------- */
+.directory-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.directory-toolbar__count {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+
+.view-switch {
+  display: inline-flex;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 3px;
+  align-self: flex-start;
+  background: var(--color-surface);
+}
+
+.view-switch button {
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+
+.view-switch button[aria-pressed="true"] {
+  background: var(--color-indigo-800);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------
+   Member directory — grid + list views
+   --------------------------------------------------------------------- */
+.directory {
+  padding-block: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+}
+
+.member-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.member-card__figure {
+  aspect-ratio: 3 / 2;
+  background: var(--color-indigo-100);
+}
+
+.member-card__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-card__body {
+  padding: var(--space-3);
+  display: grid;
+  gap: var(--space-1);
+}
+
+.member-card__top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.member-card__name {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.badge {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge--gold { background: var(--color-ochre-bg); color: var(--color-ochre-text); }
+.badge--silver { background: var(--color-slate-bg); color: var(--color-slate); }
+.badge--member { background: var(--color-green-bg); color: var(--color-green); }
+
+.member-card__tagline {
+  font-size: 0.92rem;
+}
+
+.member-card__meta {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-1) 0 0;
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+  display: grid;
+  gap: 4px;
+}
+
+.member-card__meta a { font-weight: 600; }
+
+/* List view shows member info as text rows — no images, per the
+   grid/list toggle requirement. */
+.directory[data-view="list"] {
+  grid-template-columns: 1fr;
+}
+
+.directory[data-view="list"] .member-card {
+  padding: var(--space-2) var(--space-3);
+}
+
+.directory[data-view="list"] .member-card__figure {
+  display: none;
+}
+
+.directory[data-view="list"] .member-card__body {
+  padding: 0;
+}
+
+.directory[data-view="list"] .member-card__tagline {
+  display: none;
+}
+
+.directory[data-view="list"] .member-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin-top: 6px;
+}
+
+.directory[data-view="list"] .member-card__meta li {
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-indigo-900);
+  color: #cfd8e8;
+  margin-top: var(--space-5);
+}
+
+.site-footer .wrapper {
+  padding-block: var(--space-4);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.site-footer h2 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+}
+
+.site-footer address {
+  font-style: normal;
+  display: grid;
+  gap: 6px;
+  font-size: 0.92rem;
+}
+
+.site-footer a { color: #cfd8e8; }
+.site-footer a:hover { color: var(--color-ochre-text); }
+
+.social-links {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.social-links a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #3c4a68;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a:hover {
+  border-color: var(--color-ochre);
+  opacity: 0.8;
+}
+
+.social-links img {
+  width: 18px;
+  height: 18px;
+}
+
+.site-footer__legal {
+  border-top: 1px solid #2b3958;
+  padding-top: var(--space-3);
+  font-size: 0.85rem;
+  display: grid;
+  gap: 4px;
+}
+
+/* Loading / error text shown by fetch()-driven sections. */
+.status-text {
+  padding: var(--space-3);
+  color: var(--color-ink-soft);
+}
+
+.status-text[hidden] { display: none; }
+
+/* =======================================================================
+   Join page — application form + membership level cards/modals
+   ======================================================================= */
+.join-layout {
+  display: grid;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+}
+
+.join-form {
+  display: grid;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  align-content: start;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.field__required {
+  color: var(--color-ochre-text);
+}
+
+.field__hint {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: #fff;
+  color: var(--color-ink);
+  width: 100%;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.field input:invalid:not(:placeholder-shown) {
+  border-color: #a8462f;
+}
+
+.join-form > .button--cta {
+  justify-self: start;
+  margin-top: var(--space-1);
+  border: none;
+  font: inherit;
+  font-weight: 700;
+}
+
+.membership-cards__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.membership-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 6px solid var(--color-indigo-600);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  display: grid;
+  gap: 6px;
+  /* Entrance animation on initial load — not a hover effect. */
+  opacity: 0;
+  transform: translateY(16px);
+  animation: card-enter 0.5s ease forwards;
+}
+
+.membership-card--np { border-left-color: var(--color-green); }
+.membership-card--bronze { border-left-color: var(--color-bronze); }
+.membership-card--silver { border-left-color: var(--color-slate); }
+.membership-card--gold { border-left-color: var(--color-ochre-text); }
+
+.membership-card:nth-child(1) { animation-delay: 0.05s; }
+.membership-card:nth-child(2) { animation-delay: 0.2s; }
+.membership-card:nth-child(3) { animation-delay: 0.35s; }
+.membership-card:nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes card-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.membership-card__price {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-indigo-800);
+}
+
+.membership-card__link {
+  justify-self: start;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-indigo-600);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+}
+
+.membership-card__link:hover {
+  color: var(--color-ochre-text);
+}
+
+.benefits-modal {
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  width: min(90vw, 32rem);
+  box-shadow: 0 20px 60px rgba(11, 22, 38, 0.35);
+}
+
+.benefits-modal::backdrop {
+  background: rgba(11, 22, 38, 0.6);
+}
+
+.benefits-modal ul {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 var(--space-3);
+  padding-left: 1.2rem;
+  color: var(--color-ink-soft);
+}
+
+.benefits-modal li {
+  line-height: 1.5;
+}
+
+.modal-close {
+  background: var(--color-indigo-800);
+  color: #fff;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  font-weight: 700;
+  border: none;
+  font: inherit;
+}
+
+.modal-close:hover {
+  background: var(--color-indigo-600);
+}
+
+/* =======================================================================
+   Thank-you page — submitted application summary
+   ======================================================================= */
+.thankyou-summary {
+  padding-block: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+  max-width: 40rem;
+}
+
+.summary-list {
+  display: grid;
+  gap: 2px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin: 0;
+}
+
+.summary-list__row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-2);
+  padding-block: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.summary-list__row:last-child {
+  border-bottom: none;
+}
+
+.summary-list__row dt {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.summary-list__row dd {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+.thankyou-summary > .button--cta {
+  justify-self: start;
+}
+
+/* =======================================================================
+   Discover page
+   ======================================================================= */
+.visit-message {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  color: #fff;
+  margin-top: var(--space-2);
+  max-width: 48ch;
+}
+
+/* Mobile: single stacked column. Named areas still used, per requirement,
+   even though it collapses to one column at this size. */
+.discover-grid {
+  display: grid;
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "one"
+    "two"
+    "three"
+    "four"
+    "five"
+    "six"
+    "seven"
+    "eight";
+}
+
+.discover-card:nth-child(1) { grid-area: one; }
+.discover-card:nth-child(2) { grid-area: two; }
+.discover-card:nth-child(3) { grid-area: three; }
+.discover-card:nth-child(4) { grid-area: four; }
+.discover-card:nth-child(5) { grid-area: five; }
+.discover-card:nth-child(6) { grid-area: six; }
+.discover-card:nth-child(7) { grid-area: seven; }
+.discover-card:nth-child(8) { grid-area: eight; }
+
+.discover-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 6px;
+  padding-bottom: var(--space-3);
+}
+
+.discover-card__figure {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--color-indigo-100);
+  margin: 0;
+}
+
+.discover-card__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.discover-card h2 {
+  font-size: 1.05rem;
+  margin: var(--space-2) var(--space-3) 0;
+}
+
+.discover-card address {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin: 0 var(--space-3);
+}
+
+.discover-card p {
+  font-size: 0.92rem;
+  margin: 0 var(--space-3);
+  color: var(--color-ink-soft);
+}
+
+.discover-card__link {
+  justify-self: start;
+  margin: 4px var(--space-3) 0;
+  background: var(--color-indigo-800);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.discover-card__link:hover {
+  background: var(--color-ochre-text);
+  color: #fff;
 }

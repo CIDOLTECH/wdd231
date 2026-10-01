@@ -1,12 +1,6 @@
 // scripts/directory.js
-// Course objective 2: variables, functions, arrays/objects, template
-// literals, and an ES module.
-// Course objective 3: event handling + dynamic DOM manipulation.
-// Nav toggle now lives in scripts/nav.js, shared by every page.
+// Nav toggle lives in scripts/nav.js, shared by every page.
 
-// ---------------------------------------------------------------
-// Member directory: fetch + render
-// ---------------------------------------------------------------
 const LEVEL_LABELS = {
   1: { text: "Member", badgeClass: "badge--member" },
   2: { text: "Silver", badgeClass: "badge--silver" },
@@ -30,11 +24,6 @@ function memberCardTemplate(member) {
           <span class="badge ${level.badgeClass}">${level.text}</span>
         </div>
         <p class="member-card__tagline">${member.tagline}</p>
-        <ul class="member-card__meta">
-          <li>${member.address}</li>
-          <li><a href="tel:${member.phone.replace(/[^\d+]/g, "")}">${member.phone}</a></li>
-          <li><a href="${member.url}" target="_blank" rel="noopener">${member.url.replace(/^https?:\/\//, "")}</a></li>
-        </ul>
       </div>
     </article>
   `;
@@ -55,8 +44,7 @@ async function loadMembers() {
     const data = await response.json();
     const members = data.members;
 
-    // Sort gold-tier members first so top-tier sponsors surface up top,
-    // then alphabetically within a tier.
+    // Sort gold-tier members first, then alphabetically within a tier.
     const sorted = [...members].sort((a, b) => {
       if (b.level !== a.level) return b.level - a.level;
       return a.name.localeCompare(b.name);
@@ -80,9 +68,6 @@ async function loadMembers() {
   }
 }
 
-// ---------------------------------------------------------------
-// Grid / list view switch
-// ---------------------------------------------------------------
 function initViewSwitch() {
   const directoryEl = document.querySelector("#directory");
   const buttons = document.querySelectorAll("[data-view-button]");

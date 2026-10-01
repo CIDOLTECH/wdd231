@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="BW monogram">
+  <rect width="240" height="160" fill="#1F7A5C"/>
+  <path d="M0 130 Q60 100 120 130 T240 130 V160 H0 Z" fill="#F4F6F5" opacity="0.25"/>
+  <circle cx="120" cy="62" r="34" fill="none" stroke="#F4F6F5" stroke-width="3" opacity="0.55"/>
+  <text x="120" y="74" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#F4F6F5" text-anchor="middle">BW</text>
+</svg>

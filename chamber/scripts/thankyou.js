@@ -1,10 +1,6 @@
 // scripts/thankyou.js
-// Course objective 2: URLSearchParams, objects, array methods, template literals.
-// Course objective 3: dynamic DOM manipulation after load.
 // Nav toggle lives in scripts/nav.js, shared by every page.
 
-// Only the required fields from the join form are shown here, each
-// paired with a friendly label and a formatter for its raw value.
 const SUMMARY_FIELDS = [
   { key: "firstName", label: "First Name" },
   { key: "lastName", label: "Last Name" },

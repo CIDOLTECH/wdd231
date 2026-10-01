@@ -1,6 +1,6 @@
 // scripts/nav.js
 // Shared across every page: opens/closes the mobile nav and closes
-// it again once a link is chosen. Course objective 3 (events + DOM).
+// it again once a link is chosen.
 
 function initNavToggle() {
   const toggle = document.querySelector(".nav-toggle");

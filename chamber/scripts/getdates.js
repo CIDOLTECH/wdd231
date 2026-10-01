@@ -1,8 +1,6 @@
 // getdates.js
-// Course objectives 2 & 3: plain JS fundamentals (const, template
-// literals, Date object) used to update the DOM after page load.
-// Shared by every page — the two elements it looks for
-// (#year and #lastModified) belong to the common footer markup.
+// Shared by every page. Updates the footer's copyright year and
+// last-modified date after load.
 
 const yearEl = document.querySelector("#year");
 const modifiedEl = document.querySelector("#lastModified");

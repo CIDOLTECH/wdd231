@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Member Directory — CIDOL World Incorporation</title>
+  <title>Discover Abuja — CIDOL World Incorporation</title>
   <meta name="description"
-    content="Browse IT and digital-communications member businesses of CIDOL World Incorporation, Abuja's multinational IT association.">
+    content="Discover Abuja's landmarks and cultural sites, curated by CIDOL World Incorporation for members and visitors to the city.">
   <meta name="author" content="Peter Ella Bisong">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Member Directory — CIDOL World Incorporation">
+  <meta property="og:title" content="Discover Abuja — CIDOL World Incorporation">
   <meta property="og:description"
-    content="Browse IT and digital-communications member businesses of CIDOL World Incorporation, Abuja's multinational IT association.">
+    content="Discover Abuja's landmarks and cultural sites, curated by CIDOL World Incorporation for members and visitors to the city.">
   <meta property="og:image" content="https://cidoltech.github.io/wdd231/images/og-image.jpg">
-  <meta property="og:url" content="https://cidoltech.github.io/wdd231/directory.html">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/discover.html">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="images/favicon.ico">
@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- type="module" so this page's script can import discover.mjs -->
+  <script type="module" src="scripts/discover.js"></script>
 </head>
 
 <body>
@@ -50,9 +53,9 @@
       <nav class="primary-nav" id="primaryNav" aria-label="Primary">
         <ul class="primary-nav__list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="directory.html" aria-current="page">Directory</a></li>
+          <li><a href="directory.html">Directory</a></li>
           <li><a href="join.html">Join</a></li>
-          <li><a href="discover.html">Discover Abuja</a></li>
+          <li><a href="discover.html" aria-current="page">Discover Abuja</a></li>
         </ul>
       </nav>
     </div>
@@ -61,27 +64,16 @@
   <main id="main">
     <section class="page-intro">
       <div class="wrapper">
-        <h1>Member Directory</h1>
-        <p>Explore the IT and digital-communications businesses building Abuja's tech economy alongside CIDOL World
-          Incorporation.</p>
+        <h1>Discover Abuja</h1>
+        <p>A short guide to the city CIDOL World Incorporation calls home — landmarks worth a visit, curated for members
+          and newcomers alike.</p>
+        <p class="visit-message" id="visitMessage" role="status"></p>
       </div>
     </section>
 
     <div class="wrapper">
-      <div class="directory-toolbar">
-        <h2 class="visually-hidden">Business listings</h2>
-        <p class="directory-toolbar__count" id="memberCount" aria-live="polite"></p>
-
-        <div class="view-switch" role="group" aria-label="Directory layout">
-          <button type="button" data-view-button="grid" aria-pressed="true">Grid</button>
-          <button type="button" data-view-button="list" aria-pressed="false">List</button>
-        </div>
-      </div>
-
-      <p class="status-text" id="directoryStatus" role="status" hidden></p>
-
-      <section class="directory" id="directory" data-view="grid" aria-label="Member businesses">
-      </section>
+      <p class="status-text" id="discoverStatus" role="status" hidden></p>
+      <div class="discover-grid" id="discoverGrid" role="group" aria-label="Places to discover in Abuja"></div>
     </div>
   </main>
 
@@ -123,7 +115,6 @@
 
   <script src="scripts/getdates.js"></script>
   <script src="scripts/nav.js"></script>
-  <script src="scripts/directory.js"></script>
 </body>
 
 </html>

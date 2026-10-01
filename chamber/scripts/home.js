@@ -1,17 +1,40 @@
 // scripts/home.js
-// Course objective 2: variables, functions, objects, template literals.
-// Course objective 3: fetch()/async-await driven DOM updates.
 // Nav toggle lives in scripts/nav.js, shared by every page.
 
 // ---------------------------------------------------------------
-// Weather — OpenWeatherMap current conditions + 3-day forecast
+// Weather — Open-Meteo, a free public weather service, for CIDOL
+// World's Abuja, Nigeria headquarters. No signup or key needed.
 // ---------------------------------------------------------------
-
-// Get a free key at https://openweathermap.org/api and paste it below.
-// Coordinates are for CIDOL World's Abuja, Nigeria headquarters.
-const WEATHER_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY";
 const CHAMBER_LAT = 9.0765;
 const CHAMBER_LON = 7.3986;
+
+// Open-Meteo returns a numeric WMO weather code, not a text
+// description or an icon — this table maps each code to both,
+// using the small local icon set in images/weather/.
+const WEATHER_CODES = {
+  0: { text: "Clear sky", icon: "sun" },
+  1: { text: "Mainly clear", icon: "sun" },
+  2: { text: "Partly cloudy", icon: "partly-cloudy" },
+  3: { text: "Overcast", icon: "cloudy" },
+  45: { text: "Foggy", icon: "fog" },
+  48: { text: "Foggy", icon: "fog" },
+  51: { text: "Light drizzle", icon: "rain" },
+  53: { text: "Drizzle", icon: "rain" },
+  55: { text: "Dense drizzle", icon: "rain" },
+  61: { text: "Light rain", icon: "rain" },
+  63: { text: "Rain", icon: "rain" },
+  65: { text: "Heavy rain", icon: "rain" },
+  80: { text: "Rain showers", icon: "rain" },
+  81: { text: "Rain showers", icon: "rain" },
+  82: { text: "Heavy rain showers", icon: "rain" },
+  95: { text: "Thunderstorm", icon: "thunderstorm" },
+  96: { text: "Thunderstorm", icon: "thunderstorm" },
+  99: { text: "Thunderstorm", icon: "thunderstorm" },
+};
+
+function describeWeather(code) {
+  return WEATHER_CODES[code] ?? { text: "Cloudy", icon: "cloudy" };
+}
 
 async function loadWeather() {
   const tempEl = document.querySelector("#currentTemp");
@@ -19,59 +42,43 @@ async function loadWeather() {
   const iconEl = document.querySelector("#currentIcon");
   const forecastEl = document.querySelector("#forecastList");
   const statusEl = document.querySelector("#weatherStatus");
-  const WEATHER_API_KEY = "9910946f2a73f4e4898f97fcc4bb16f4";
   if (!tempEl || !forecastEl) return;
 
-  if (!WEATHER_API_KEY || WEATHER_API_KEY === "9910946f2a73f4e4898f97fcc4bb16f4") {
-    if (statusEl) {
-      statusEl.textContent =
-        "Add a free OpenWeatherMap API key in scripts/home.js (WEATHER_API_KEY) to show live weather.";
-      statusEl.hidden = false;
-    }
-    return;
-  }
-
-  const base = "https://api.openweathermap.org/data/2.5";
-  const currentUrl = `${base}/weather?lat=${CHAMBER_LAT}&lon=${CHAMBER_LON}&units=metric&appid=${WEATHER_API_KEY}`;
-  const forecastUrl = `${base}/forecast?lat=${CHAMBER_LAT}&lon=${CHAMBER_LON}&units=metric&appid=${WEATHER_API_KEY}`;
+  const url =
+    `https://api.open-meteo.com/v1/forecast?latitude=${CHAMBER_LAT}&longitude=${CHAMBER_LON}` +
+    `&current=temperature_2m,weather_code` +
+    `&daily=temperature_2m_max,weather_code` +
+    `&timezone=auto&forecast_days=4`;
 
   try {
-    const [currentRes, forecastRes] = await Promise.all([
-      fetch(currentUrl),
-      fetch(forecastUrl),
-    ]);
-
-    if (!currentRes.ok || !forecastRes.ok) {
-      throw new Error("Weather request failed");
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Weather request failed with status ${response.status}`);
     }
 
-    const current = await currentRes.json();
-    const forecast = await forecastRes.json();
+    const data = await response.json();
+    const current = describeWeather(data.current.weather_code);
 
-    const currentCondition = current.weather[0];
-    tempEl.textContent = `${Math.round(current.main.temp)}\u00b0C`;
-    descEl.textContent = currentCondition.description;
-    iconEl.src = `https://openweathermap.org/img/wn/${currentCondition.icon}@2x.png`;
-    iconEl.alt = currentCondition.description;
+    tempEl.textContent = `${Math.round(data.current.temperature_2m)}\u00b0C`;
+    descEl.textContent = current.text;
+    iconEl.src = `images/weather/${current.icon}.svg`;
+    iconEl.alt = current.text;
+    iconEl.hidden = false;
 
-    // The free /forecast endpoint returns one entry every 3 hours for
-    // 5 days. Taking the 12:00 entry for each date gives one clearly
-    // labeled reading per day for the next three days.
-    const middayEntries = forecast.list
-      .filter((entry) => entry.dt_txt.includes("12:00:00"))
-      .slice(0, 3);
+    // Skip today (index 0) — the next three days make the forecast.
+    const days = data.daily.time.slice(1, 4);
+    const highs = data.daily.temperature_2m_max.slice(1, 4);
+    const codes = data.daily.weather_code.slice(1, 4);
 
-    forecastEl.innerHTML = middayEntries
-      .map((entry) => {
-        const day = new Date(entry.dt_txt).toLocaleDateString("en-GB", {
-          weekday: "short",
-        });
-        const condition = entry.weather[0];
+    forecastEl.innerHTML = days
+      .map((isoDate, i) => {
+        const label = new Date(isoDate).toLocaleDateString("en-GB", { weekday: "short" });
+        const condition = describeWeather(codes[i]);
         return `
           <li class="forecast-day">
-            <span class="forecast-day__label">${day}</span>
-            <img src="https://openweathermap.org/img/wn/${condition.icon}.png" alt="${condition.description}" width="40" height="40" loading="lazy">
-            <span class="forecast-day__temp">${Math.round(entry.main.temp)}\u00b0C</span>
+            <span class="forecast-day__label">${label}</span>
+            <img src="images/weather/${condition.icon}.svg" alt="${condition.text}" width="32" height="32" loading="lazy">
+            <span class="forecast-day__temp">${Math.round(highs[i])}\u00b0C</span>
           </li>
         `;
       })
@@ -81,7 +88,7 @@ async function loadWeather() {
   } catch (error) {
     console.error("Could not load weather:", error);
     if (statusEl) {
-      statusEl.textContent = "Weather is temporarily unavailable. Please try again later.";
+      statusEl.textContent = "Weather is temporarily unavailable.";
       statusEl.hidden = false;
     }
   }
@@ -106,11 +113,6 @@ function spotlightCardTemplate(member) {
           <h3>${member.name}</h3>
           <span class="badge ${level.badgeClass}">${level.text}</span>
         </div>
-        <ul class="spotlight-card__meta">
-          <li>${member.address}</li>
-          <li><a href="tel:${member.phone.replace(/[^\d+]/g, "")}">${member.phone}</a></li>
-          <li><a href="${member.url}" target="_blank" rel="noopener">${member.url.replace(/^https?:\/\//, "")}</a></li>
-        </ul>
       </div>
     </article>
   `;

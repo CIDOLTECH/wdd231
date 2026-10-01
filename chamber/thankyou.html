@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!--
-    Course objective 1: valid, semantic HTML5.
-    <head> carries the required title/description/author, favicon,
-    and Facebook (Open Graph) social meta.
-  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Thank You — CIDOL World Incorporation</title>
-  <meta name="description" content="Confirmation that your CIDOL World Incorporation membership application was submitted successfully.">
+  <meta name="description"
+    content="Confirmation that your CIDOL World Incorporation membership application was submitted successfully.">
   <meta name="author" content="Peter Ella Bisong">
 
-  <!-- Facebook / Open Graph social meta -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Thank You — CIDOL World Incorporation">
-  <meta property="og:description" content="Confirmation that your CIDOL World Incorporation membership application was submitted successfully.">
+  <meta property="og:description"
+    content="Confirmation that your CIDOL World Incorporation membership application was submitted successfully.">
   <meta property="og:image" content="https://cidoltech.github.io/wdd231/images/og-image.jpg">
   <meta property="og:url" content="https://cidoltech.github.io/wdd231/thankyou.html">
 
-  <!-- Favicon -->
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="images/favicon.ico">
 
-  <!-- Fonts: two families, limited weights to keep payload small -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet">
 
-  <!-- CSS: reset first, then mobile-first base, then larger-viewport overrides -->
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ============ HEADER + NAV (shared across every page) ============ -->
   <header class="site-header">
     <div class="wrapper site-header__bar">
       <a class="brand" href="index.html" aria-label="CIDOL World Incorporation home">
         <img src="images/logo.svg" alt="CIDOL World Incorporation">
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav"
+        aria-label="Toggle navigation menu">
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
@@ -56,18 +53,17 @@
           <li><a href="directory.html">Directory</a></li>
           <li><a href="join.html">Join</a></li>
           <li><a href="discover.html">Discover Abuja</a></li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- ============ PAGE INTRO ============ -->
     <section class="page-intro">
       <div class="wrapper">
         <h1>Thank You!</h1>
-        <p>Your CIDOL World Incorporation membership application has been received. A member of our team will follow up shortly.</p>
+        <p>Your CIDOL World Incorporation membership application has been received. A member of our team will follow up
+          shortly.</p>
       </div>
     </section>
 
@@ -75,22 +71,18 @@
       <h2>Application Summary</h2>
       <p>Here's what we received:</p>
       <dl class="summary-list" id="summaryList">
-        <!-- Populated by scripts/thankyou.js from the form's query string -->
       </dl>
       <a class="button button--cta" href="directory.html">Browse the Member Directory</a>
     </section>
   </main>
 
-
-  <!-- ============ FOOTER (shared across every page) ============ -->
   <footer class="site-footer">
     <div class="wrapper">
       <div>
         <h2>Contact CIDOL World Incorporation</h2>
         <address>
-          <span>12 Yakubu Gowon Crescent, Asokoro, Abuja, Nigeria</span>
-          <a href="tel:+2348001234567">+234 800 123 4567</a>
-          <a href="mailto:info@cidolworld.example.com">info@cidolworld.example.com</a>
+          <span>Abuja, Nigeria</span>
+          <a href="mailto:info@cidolworld.com">info@cidolworld.com</a>
         </address>
       </div>
 
@@ -98,13 +90,13 @@
         <h2>Connect</h2>
         <div class="social-links">
           <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="CIDOL World on Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9.5c0-.3.2-.5.5-.5Z" fill="currentColor"/></svg>
+            <img src="images/social/facebook.png" alt="" width="18" height="18">
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="CIDOL World on LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 9H4v11h2.5V9ZM5.25 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM20 14.2c0-3-1.6-4.4-3.8-4.4-1.7 0-2.5 1-2.9 1.6V9H10.7v11h2.6v-6.1c0-.6.1-1.2.9-1.7.4-.3.9-.4 1.3-.4 1.2 0 1.9.8 1.9 2.3V20H20v-5.8Z" fill="currentColor"/></svg>
+            <img src="images/social/linkedin.png" alt="" width="18" height="18">
           </a>
           <a href="https://x.com" target="_blank" rel="noopener" aria-label="CIDOL World on X">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <img src="images/social/x.png" alt="" width="18" height="18">
           </a>
         </div>
       </div>
@@ -124,4 +116,5 @@
   <script src="scripts/nav.js"></script>
   <script src="scripts/thankyou.js"></script>
 </body>
+
 </html>
