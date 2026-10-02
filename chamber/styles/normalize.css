@@ -1,41 +1,25 @@
-/*
-  normalize.css — a small, original reset.
-  Loaded first, before small.css and larger.css, so every browser
-  starts the page from the same baseline before our theme is applied.
-*/
-
+/* Small reset, loaded first. */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
 body,
 h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
+figure, dl, dd {
   margin: 0;
 }
 
-ul[class],
-ol[class] {
+ul[class] {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-img,
-picture,
-svg {
+img {
   display: block;
   max-width: 100%;
-}
-
-img {
   height: auto;
 }
 
@@ -44,7 +28,6 @@ button,
 textarea,
 select {
   font: inherit;
-  color: inherit;
 }
 
 button {
@@ -58,19 +41,12 @@ a {
   text-decoration: none;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+[hidden] {
+  display: none;
 }
 
-/* Respect a person's motion preference site-wide. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  * {
+    animation: none;
   }
 }

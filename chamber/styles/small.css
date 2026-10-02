@@ -1,116 +1,71 @@
-/* =========================================================
-   CIDOL World Incorporation — base styles (mobile-first)
-   This file holds the styles that apply from the smallest
-   phone up. larger.css adds/overrides rules at wider
-   breakpoints only — nothing here should need duplicating.
-   ========================================================= */
+/* CIDOL World Incorporation: mobile-first base styles.
+   larger.css only adds rules for wider screens. */
 
 :root {
-  /* ---- Color tokens -------------------------------------------------
-     Palette is drawn from adire indigo-resist textile work: deep
-     indigo grounds the brand, a warm ochre stands in for the wax
-     accents, and a muted green nods to the firm's "growth" story. */
-  --color-ink: #16191c;
-  --color-ink-soft: #4b5563;
-  --color-bg: #f4f6f5;
-  --color-surface: #ffffff;
-  --color-border: #dde3e0;
+  --ink: #16191c;
+  --soft: #4b5563;
+  --bg: #f4f6f5;
+  --white: #ffffff;
+  --line: #dde3e0;
+  --navy: #1b2a4a;
+  --blue: #2e4374;
+  --pale: #e6eaf2;
+  --ochre: #c97a1a;
+  --ochre-dark: #8f530d;
+  --bronze: #8a5a2b;
 
-  --color-indigo-900: #16324f;
-  --color-indigo-800: #1b2a4a;
-  --color-indigo-600: #2e4374;
-  --color-indigo-100: #e6eaf2;
+  --display: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+  --body: "Inter", "Segoe UI", Arial, sans-serif;
 
-  --color-ochre: #c97a1a;      /* decorative accent only (borders, focus ring, icons) */
-  --color-ochre-text: #8f530d; /* AA-safe darker ochre for any text/badge use */
-  --color-ochre-bg: #fbeedb;
-  --color-green: #166249;
-  --color-green-bg: #e3f1eb;
-  --color-slate: #55637a;
-  --color-slate-bg: #e9edf2;
-  --color-bronze: #8a5a2b;
-
-  /* ---- Type ---------------------------------------------------------- */
-  --font-display: "Space Grotesk", "Segoe UI", Arial, sans-serif;
-  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
-
-  /* ---- Spacing + shape ------------------------------------------------ */
   --space-1: 0.5rem;
   --space-2: 0.75rem;
   --space-3: 1.25rem;
   --space-4: 2rem;
-  --space-5: 3.25rem;
   --radius: 10px;
-  --container: 72rem;
-
-  --focus-ring: 3px solid var(--color-ochre);
 }
 
-/* ---------------------------------------------------------------------
-   Base
-   --------------------------------------------------------------------- */
-html {
-  scroll-behavior: smooth;
-}
-
+/* ---------- Base ---------- */
 body {
-  background: var(--color-bg);
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
-  min-width: 320px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 1rem/1.6 var(--body);
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  color: var(--color-indigo-800);
+h1, h2, h3 {
+  font-family: var(--display);
+  color: var(--navy);
   line-height: 1.15;
 }
 
-h1 { font-size: 1.9rem; }
+h1 { font-size: 1.9rem; margin-bottom: var(--space-1); }
 h2 { font-size: 1.5rem; margin-bottom: var(--space-2); }
 h3 { font-size: 1.15rem; }
+p { color: var(--soft); }
 
-p { color: var(--color-ink-soft); }
+a { color: var(--blue); }
+a:hover { color: var(--ochre-dark); }
 
-a {
-  color: var(--color-indigo-600);
-}
-
-a:hover { color: var(--color-ochre-text); }
-
-/* Visible focus state everywhere — WCAG 2.1 AA keyboard requirement. */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
-textarea:focus-visible,
-[tabindex]:focus-visible {
-  outline: var(--focus-ring);
+textarea:focus-visible {
+  outline: 3px solid var(--ochre);
   outline-offset: 2px;
 }
 
-/* Skip link: hidden until focused, first thing a keyboard user hits. */
 .skip-link {
   position: absolute;
   left: -999px;
-  top: auto;
-  background: var(--color-indigo-800);
-  color: #fff;
+  background: var(--navy);
+  color: var(--white);
   padding: var(--space-2) var(--space-3);
-  border-radius: 0 0 8px 0;
-  z-index: 100;
 }
 
-.skip-link:focus {
-  left: 0;
-  top: 0;
-}
+.skip-link:focus { left: 0; }
 
 .wrapper {
-  width: 100%;
-  max-width: var(--container);
+  max-width: 72rem;
   margin-inline: auto;
   padding-inline: var(--space-3);
 }
@@ -119,17 +74,79 @@ textarea:focus-visible,
   position: absolute;
   width: 1px;
   height: 1px;
-  overflow: hidden;
   clip: rect(0 0 0 0);
-  white-space: nowrap;
 }
 
-/* ---------------------------------------------------------------------
-   Header + primary nav
-   --------------------------------------------------------------------- */
+/* ---------- Shared patterns ---------- */
+.home-grid,
+.spotlights,
+.directory,
+.join-layout,
+.thankyou-summary,
+.discover-grid {
+  padding-block: var(--space-4);
+}
+
+.home-grid,
+.event-list,
+.spotlights__grid,
+.directory,
+.join-layout,
+.join-form,
+.membership-cards__list,
+.thankyou-summary,
+.discover-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.panel,
+.join-form,
+.membership-card,
+.summary-list,
+.spotlight-card,
+.member-card,
+.discover-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.panel,
+.join-form,
+.membership-card,
+.summary-list {
+  padding: var(--space-3);
+}
+
+.member-card img,
+.spotlight-card img,
+.discover-card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.member-card__body,
+.spotlight-card__body {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.member-card__top,
+.spotlight-card__top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* ---------- Header + nav ---------- */
 .site-header {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -140,208 +157,118 @@ textarea:focus-visible,
   align-items: center;
   justify-content: space-between;
   padding-block: var(--space-2);
-  gap: var(--space-3);
 }
 
 .brand img {
   height: 40px;
-  width: auto;
 }
 
 .nav-toggle {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
   gap: 5px;
   width: 44px;
   height: 44px;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
 }
-
-.nav-toggle:hover { background: var(--color-indigo-100); }
 
 .nav-toggle__bar {
   width: 22px;
   height: 2px;
-  background: var(--color-indigo-800);
-  border-radius: 2px;
+  background: var(--navy);
 }
 
 .primary-nav {
   position: absolute;
-  inset-inline: 0;
-  top: 100%;
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  inset: 100% 0 auto;
+  background: var(--white);
   display: none;
 }
 
-.primary-nav.is-open {
-  display: block;
-}
+.primary-nav.is-open { display: block; }
 
 .primary-nav__list {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-2) var(--space-3) var(--space-3);
+  display: grid;
+  padding: var(--space-2) var(--space-3);
 }
 
 .primary-nav__list a {
   display: block;
-  padding: var(--space-2) 0;
+  padding-block: var(--space-2);
   font-weight: 600;
-  border-bottom: 1px solid var(--color-border);
 }
 
-.primary-nav__list a[aria-current="page"] {
-  color: var(--color-ochre-text);
-}
+.primary-nav__list a[aria-current="page"] { color: var(--ochre-dark); }
 
-/* ---------------------------------------------------------------------
-   Hero / page intro
-   --------------------------------------------------------------------- */
+/* ---------- Hero + page intro ---------- */
 .page-intro {
-  background: var(--color-indigo-800);
-  color: #fff;
+  background: var(--navy);
   padding-block: var(--space-4);
 }
 
-.page-intro h1 { color: #fff; }
+.page-intro h1,
+.hero__content h1 { color: var(--white); }
 
-.page-intro p {
-  color: #cfd8e8;
-  max-width: 40ch;
-}
-
-/* ---------------------------------------------------------------------
-   Buttons
-   --------------------------------------------------------------------- */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-2) var(--space-4);
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.button--cta {
-  background: var(--color-ochre-text);
-  color: #fff;
-  width: fit-content;
-}
-
-.button--cta:hover {
-  background: #6b3d09;
-  color: #fff;
-}
-
-/* ---------------------------------------------------------------------
-   Hero (home page) — scalable <img>, not a CSS background image
-   --------------------------------------------------------------------- */
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero__image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.hero__scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(11, 22, 38, 0.1) 0%, rgba(11, 22, 38, 0.85) 78%);
-}
-
-.hero__content {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: var(--space-3);
-  display: grid;
-  gap: var(--space-2);
-}
-
-.hero__content h1 {
-  color: #fff;
-}
-
+.page-intro p,
 .hero__content p {
-  color: #dbe2ee;
+  color: var(--pale);
   max-width: 46ch;
 }
 
-/* ---------------------------------------------------------------------
-   Home page: events + weather panels
-   --------------------------------------------------------------------- */
-.home-grid {
-  display: grid;
-  gap: var(--space-4);
-  padding-block: var(--space-4);
-}
-
-.panel {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+.visit-message {
+  background: #ffffff1f;
   border-radius: var(--radius);
-  padding: var(--space-3);
+  padding: var(--space-2) var(--space-3);
 }
 
-.event-list {
+.hero { position: relative; }
+
+.hero__content {
+  position: absolute;
+  inset: auto 0 0;
+  padding: var(--space-4) var(--space-3) var(--space-3);
   display: grid;
-  gap: var(--space-3);
-  margin-top: var(--space-2);
+  gap: var(--space-2);
+  justify-items: start;
+  background: linear-gradient(#1b2a4a00, #1b2a4ae6);
 }
 
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  font-weight: 700;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.button--cta { background: var(--ochre-dark); }
+
+.button:hover {
+  background: var(--bronze);
+  color: var(--white);
+}
+
+/* ---------- Home: events + weather ---------- */
 .event-card {
-  border-left: 4px solid var(--color-indigo-600);
+  border-left: 4px solid var(--blue);
   padding-left: var(--space-2);
 }
 
 .event-card__date {
-  color: var(--color-ochre-text);
+  color: var(--ochre-dark);
   font-weight: 700;
-  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.event-card__title {
-  margin: 4px 0;
 }
 
 .weather__current {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  margin: var(--space-2) 0 var(--space-3);
-  min-height: 64px;
-}
-
-.weather__current img {
-  width: 48px;
-  height: 48px;
 }
 
 .weather__temp {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  color: var(--color-indigo-800);
-}
-
-.weather__desc {
-  color: var(--color-ink-soft);
-  text-transform: capitalize;
-}
-
-.forecast-heading {
-  font-size: 1rem;
-  margin-bottom: var(--space-1);
+  font: 2rem var(--display);
+  color: var(--navy);
 }
 
 .forecast-list {
@@ -351,175 +278,49 @@ textarea:focus-visible,
 
 .forecast-day {
   flex: 1;
-  background: var(--color-bg);
-  border-radius: var(--radius);
-  padding: var(--space-2);
   display: grid;
   justify-items: center;
-  gap: 4px;
-  text-align: center;
-}
-
-.forecast-day img {
-  width: 32px;
-  height: 32px;
-}
-
-.forecast-day__label {
-  font-weight: 600;
-  font-size: 0.85rem;
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: var(--space-2);
 }
 
 .forecast-day__temp {
   font-weight: 700;
-  color: var(--color-indigo-800);
+  color: var(--navy);
 }
 
-/* ---------------------------------------------------------------------
-   Home page: member spotlights
-   --------------------------------------------------------------------- */
-.spotlights {
-  padding-block: var(--space-4);
-}
-
-.spotlights__grid {
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: 1fr;
-  margin-top: var(--space-2);
-}
-
-.spotlight-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 110px 1fr;
-}
-
-.spotlight-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: var(--color-indigo-100);
-  padding: var(--space-1);
-}
-
-.spotlight-card__body {
-  padding: var(--space-2) var(--space-3);
-  display: grid;
-  gap: 6px;
-}
-
-.spotlight-card__top {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: var(--space-2);
-}
-
-.spotlight-card__top h3 {
-  font-size: 1rem;
-  margin: 0;
-}
-
-.spotlight-card__meta {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--color-ink-soft);
-  display: grid;
-  gap: 3px;
-}
-
-/* ---------------------------------------------------------------------
-   Directory toolbar
-   --------------------------------------------------------------------- */
+/* ---------- Directory + spotlights ---------- */
 .directory-toolbar {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   padding-block: var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.directory-toolbar__count {
-  color: var(--color-ink-soft);
-  font-size: 0.95rem;
-}
-
-.view-switch {
-  display: inline-flex;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: 3px;
-  align-self: flex-start;
-  background: var(--color-surface);
 }
 
 .view-switch button {
   padding: var(--space-1) var(--space-3);
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--color-ink-soft);
 }
 
 .view-switch button[aria-pressed="true"] {
-  background: var(--color-indigo-800);
-  color: #fff;
+  background: var(--navy);
+  color: var(--white);
 }
 
-/* ---------------------------------------------------------------------
-   Member directory — grid + list views
-   --------------------------------------------------------------------- */
-.directory {
-  padding-block: var(--space-4);
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: 1fr;
+.directory,
+.spotlights__grid {
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
-.member-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
+/* List view: text rows only, no images. */
+.directory[data-view="list"] { grid-template-columns: 1fr; }
 
-.member-card__figure {
-  aspect-ratio: 3 / 2;
-  background: var(--color-indigo-100);
-}
-
-.member-card__figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.member-card__body {
-  padding: var(--space-3);
-  display: grid;
-  gap: var(--space-1);
-}
-
-.member-card__top {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: var(--space-2);
-}
-
-.member-card__name {
-  font-size: 1.05rem;
-  margin: 0;
-}
+.directory[data-view="list"] .member-card__figure,
+.directory[data-view="list"] .member-card__tagline { display: none; }
 
 .badge {
-  font-family: var(--font-body);
+  background: var(--pale);
   font-size: 0.72rem;
   font-weight: 700;
   padding: 3px 10px;
@@ -527,89 +328,35 @@ textarea:focus-visible,
   white-space: nowrap;
 }
 
-.badge--gold { background: var(--color-ochre-bg); color: var(--color-ochre-text); }
-.badge--silver { background: var(--color-slate-bg); color: var(--color-slate); }
-.badge--member { background: var(--color-green-bg); color: var(--color-green); }
+.badge--gold { color: var(--ochre-dark); }
 
-.member-card__tagline {
-  font-size: 0.92rem;
-}
-
-.member-card__meta {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-1) 0 0;
-  font-size: 0.88rem;
-  color: var(--color-ink-soft);
-  display: grid;
-  gap: 4px;
-}
-
-.member-card__meta a { font-weight: 600; }
-
-/* List view shows member info as text rows — no images, per the
-   grid/list toggle requirement. */
-.directory[data-view="list"] {
-  grid-template-columns: 1fr;
-}
-
-.directory[data-view="list"] .member-card {
-  padding: var(--space-2) var(--space-3);
-}
-
-.directory[data-view="list"] .member-card__figure {
-  display: none;
-}
-
-.directory[data-view="list"] .member-card__body {
-  padding: 0;
-}
-
-.directory[data-view="list"] .member-card__tagline {
-  display: none;
-}
-
-.directory[data-view="list"] .member-card__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1) var(--space-3);
-  margin-top: 6px;
-}
-
-.directory[data-view="list"] .member-card__meta li {
-  white-space: nowrap;
-}
-
-/* ---------------------------------------------------------------------
-   Footer
-   --------------------------------------------------------------------- */
+/* ---------- Footer ---------- */
 .site-footer {
-  background: var(--color-indigo-900);
-  color: #cfd8e8;
-  margin-top: var(--space-5);
+  background: var(--navy);
+  color: var(--pale);
+  margin-top: var(--space-4);
 }
 
 .site-footer .wrapper {
-  padding-block: var(--space-4);
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: var(--space-4);
+  padding-block: var(--space-4);
 }
 
 .site-footer h2 {
-  color: #fff;
+  color: var(--white);
   font-size: 1rem;
-  margin-bottom: var(--space-2);
 }
 
 .site-footer address {
-  font-style: normal;
   display: grid;
-  gap: 6px;
-  font-size: 0.92rem;
+  font-style: normal;
 }
 
-.site-footer a { color: #cfd8e8; }
-.site-footer a:hover { color: var(--color-ochre-text); }
+.site-footer a,
+.site-footer p { color: var(--pale); }
+.site-footer a:hover { color: var(--ochre); }
 
 .social-links {
   display: flex;
@@ -617,273 +364,82 @@ textarea:focus-visible,
 }
 
 .social-links a {
+  display: grid;
+  place-content: center;
   width: 38px;
   height: 38px;
-  border-radius: 50%;
-  border: 1px solid #3c4a68;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-links a:hover {
-  border-color: var(--color-ochre);
-  opacity: 0.8;
-}
-
-.social-links img {
-  width: 18px;
-  height: 18px;
+  border: 1px solid var(--blue);
 }
 
 .site-footer__legal {
-  border-top: 1px solid #2b3958;
-  padding-top: var(--space-3);
+  border-top: 1px solid var(--blue);
   font-size: 0.85rem;
-  display: grid;
-  gap: 4px;
 }
 
-/* Loading / error text shown by fetch()-driven sections. */
-.status-text {
-  padding: var(--space-3);
-  color: var(--color-ink-soft);
-}
-
-.status-text[hidden] { display: none; }
-
-/* =======================================================================
-   Join page — application form + membership level cards/modals
-   ======================================================================= */
-.join-layout {
-  display: grid;
-  gap: var(--space-4);
-  padding-block: var(--space-4);
-}
-
-.join-form {
-  display: grid;
-  gap: var(--space-3);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--space-3);
-  align-content: start;
-}
-
+/* ---------- Join page ---------- */
 .field {
   display: grid;
   gap: 6px;
 }
 
-.field__label {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.field__required {
-  color: var(--color-ochre-text);
-}
+.field__label { font-weight: 600; }
 
 .field__hint {
   font-size: 0.8rem;
-  color: var(--color-ink-soft);
+  color: var(--soft);
 }
 
 .field input,
 .field select,
 .field textarea {
-  padding: var(--space-2);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  background: #fff;
-  color: var(--color-ink);
   width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
-.field textarea {
-  resize: vertical;
-  min-height: 96px;
-}
-
-.field input:invalid:not(:placeholder-shown) {
-  border-color: #a8462f;
-}
-
-.join-form > .button--cta {
-  justify-self: start;
-  margin-top: var(--space-1);
-  border: none;
-  font: inherit;
-  font-weight: 700;
-}
-
-.membership-cards__list {
-  display: grid;
-  gap: var(--space-3);
-}
+.join-form > .button,
+.thankyou-summary > .button { justify-self: start; }
 
 .membership-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-left: 6px solid var(--color-indigo-600);
-  border-radius: var(--radius);
-  padding: var(--space-3);
   display: grid;
-  gap: 6px;
-  /* Entrance animation on initial load — not a hover effect. */
-  opacity: 0;
-  transform: translateY(16px);
-  animation: card-enter 0.5s ease forwards;
+  border-left: 6px solid var(--blue);
+  animation: card-enter 0.5s ease backwards;
 }
-
-.membership-card--np { border-left-color: var(--color-green); }
-.membership-card--bronze { border-left-color: var(--color-bronze); }
-.membership-card--silver { border-left-color: var(--color-slate); }
-.membership-card--gold { border-left-color: var(--color-ochre-text); }
-
-.membership-card:nth-child(1) { animation-delay: 0.05s; }
-.membership-card:nth-child(2) { animation-delay: 0.2s; }
-.membership-card:nth-child(3) { animation-delay: 0.35s; }
-.membership-card:nth-child(4) { animation-delay: 0.5s; }
 
 @keyframes card-enter {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
-}
-
-.membership-card__price {
-  font-weight: 700;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--color-indigo-800);
 }
 
 .membership-card__link {
   justify-self: start;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--color-indigo-600);
+  color: var(--blue);
   text-decoration: underline;
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: var(--font-body);
-}
-
-.membership-card__link:hover {
-  color: var(--color-ochre-text);
 }
 
 .benefits-modal {
-  border: none;
   border-radius: var(--radius);
-  padding: var(--space-4);
   width: min(90vw, 32rem);
-  box-shadow: 0 20px 60px rgba(11, 22, 38, 0.35);
 }
 
-.benefits-modal::backdrop {
-  background: rgba(11, 22, 38, 0.6);
-}
+.benefits-modal::backdrop { background: #1b2a4a99; }
 
-.benefits-modal ul {
-  display: grid;
-  gap: 8px;
-  margin: 0 0 var(--space-3);
-  padding-left: 1.2rem;
-  color: var(--color-ink-soft);
-}
-
-.benefits-modal li {
-  line-height: 1.5;
-}
-
-.modal-close {
-  background: var(--color-indigo-800);
-  color: #fff;
-  padding: var(--space-1) var(--space-3);
-  border-radius: 999px;
-  font-weight: 700;
-  border: none;
-  font: inherit;
-}
-
-.modal-close:hover {
-  background: var(--color-indigo-600);
-}
-
-/* =======================================================================
-   Thank-you page — submitted application summary
-   ======================================================================= */
-.thankyou-summary {
-  padding-block: var(--space-4);
-  display: grid;
-  gap: var(--space-3);
-  max-width: 40rem;
-}
-
-.summary-list {
-  display: grid;
-  gap: 2px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--space-3);
-  margin: 0;
-}
+/* ---------- Thank-you page ---------- */
+.thankyou-summary { max-width: 40rem; }
 
 .summary-list__row {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: var(--space-2);
-  padding-block: 8px;
-  border-bottom: 1px solid var(--color-border);
+  grid-template-columns: 10rem 1fr;
+  padding-block: var(--space-1);
+  border-bottom: 1px solid var(--line);
 }
 
-.summary-list__row:last-child {
-  border-bottom: none;
-}
 
-.summary-list__row dt {
-  font-weight: 600;
-  color: var(--color-ink);
-}
-
-.summary-list__row dd {
-  margin: 0;
-  color: var(--color-ink-soft);
-}
-
-.thankyou-summary > .button--cta {
-  justify-self: start;
-}
-
-/* =======================================================================
-   Discover page
-   ======================================================================= */
-.visit-message {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius);
-  padding: var(--space-2) var(--space-3);
-  color: #fff;
-  margin-top: var(--space-2);
-  max-width: 48ch;
-}
-
-/* Mobile: single stacked column. Named areas still used, per requirement,
-   even though it collapses to one column at this size. */
+/* ---------- Discover page ---------- */
 .discover-grid {
-  display: grid;
-  gap: var(--space-3);
-  padding-block: var(--space-4);
-  grid-template-columns: 1fr;
   grid-template-areas:
     "one"
     "two"
@@ -905,63 +461,21 @@ textarea:focus-visible,
 .discover-card:nth-child(8) { grid-area: eight; }
 
 .discover-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  overflow: hidden;
   display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
-  gap: 6px;
-  padding-bottom: var(--space-3);
+  align-content: start;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
 }
 
-.discover-card__figure {
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: var(--color-indigo-100);
-  margin: 0;
-}
+.discover-card > :not(figure) { margin-inline: var(--space-3); }
 
-.discover-card__figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.discover-card__figure { overflow: hidden; }
 
-.discover-card h2 {
-  font-size: 1.05rem;
-  margin: var(--space-2) var(--space-3) 0;
-}
+.discover-card h2 { font-size: 1.1rem; }
 
 .discover-card address {
   font-style: normal;
   font-size: 0.85rem;
-  color: var(--color-ink-soft);
-  margin: 0 var(--space-3);
 }
 
-.discover-card p {
-  font-size: 0.92rem;
-  margin: 0 var(--space-3);
-  color: var(--color-ink-soft);
-}
-
-.discover-card__link {
-  justify-self: start;
-  margin: 4px var(--space-3) 0;
-  background: var(--color-indigo-800);
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  border: none;
-  font-family: var(--font-body);
-  cursor: pointer;
-}
-
-.discover-card__link:hover {
-  background: var(--color-ochre-text);
-  color: #fff;
-}
+.discover-card__link { justify-self: start; }

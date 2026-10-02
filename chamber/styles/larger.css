@@ -1,158 +1,28 @@
-/* =========================================================
-   CIDOL World Incorporation — larger-viewport overrides
-   Breakpoints: 600px (large phone/small tablet), 900px
-   (tablet/laptop), 1200px (desktop). Mobile styles in
-   small.css remain the default below 600px.
-   ========================================================= */
+/* Wider-screen overrides only. */
 
-/* ---------------------------------------------------------
-   ~600px and up
-   --------------------------------------------------------- */
-@media (min-width: 37.5em) {
-  .directory:not([data-view="list"]) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .directory-toolbar {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .home-grid {
-    grid-template-columns: 1.1fr 1fr;
-    align-items: start;
-  }
-
-  .spotlights__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero__content {
-    padding: var(--space-4);
-  }
-}
-
-/* ---------------------------------------------------------
-   ~900px and up: full desktop nav, three-column directory
-   --------------------------------------------------------- */
 @media (min-width: 56.25em) {
-  .nav-toggle {
-    display: none;
-  }
+  .nav-toggle { display: none; }
 
   .primary-nav {
     position: static;
-    border-bottom: none;
-    background: transparent;
     display: block;
   }
 
   .primary-nav__list {
-    flex-direction: row;
-    padding: 0;
+    display: flex;
     gap: var(--space-4);
-  }
-
-  .primary-nav__list a {
-    padding: var(--space-1) 0;
-    border-bottom: 2px solid transparent;
-  }
-
-  .primary-nav__list a:hover,
-  .primary-nav__list a[aria-current="page"] {
-    border-bottom-color: var(--color-ochre);
-  }
-
-  .page-intro {
-    padding-block: var(--space-5);
+    padding: 0;
   }
 
   h1 { font-size: 2.4rem; }
 
-  .directory:not([data-view="list"]) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* List view at wider screens: one tidy row per member, still no images. */
-  .directory[data-view="list"] .member-card {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-  }
-
-  .directory[data-view="list"] .member-card__body {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-3);
-    flex: 1;
-    flex-wrap: wrap;
-  }
-
-  .directory[data-view="list"] .member-card__top {
-    flex: 0 0 auto;
-    min-width: 230px;
-  }
-
-  .directory[data-view="list"] .member-card__meta {
-    flex: 1;
-    justify-content: flex-end;
-    margin-top: 0;
-  }
-
-  .site-footer .wrapper {
-    grid-template-columns: 1.2fr 1fr 1fr;
-  }
-
-  .spotlights__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .spotlight-card {
-    grid-template-columns: 1fr;
-  }
-
-  .spotlight-card img {
-    aspect-ratio: 3 / 2;
-    height: auto;
-  }
-
-  .hero__content {
-    padding: var(--space-5) var(--space-4);
-  }
-
-  .join-layout {
-    grid-template-columns: 1fr 320px;
-    align-items: start;
-  }
+  .home-grid { grid-template-columns: 1.1fr 1fr; }
+  .join-layout { grid-template-columns: 1fr 20rem; }
 }
 
-/* ---------------------------------------------------------
-   ~1200px and up: wide desktop
-   --------------------------------------------------------- */
-@media (min-width: 75em) {
-  .directory:not([data-view="list"]) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ===========================================================
-   Discover page grid — three distinct named-area layouts at
-   the exact ranges called out in the assignment: small screens
-   320–640px (the un-media-queried default in small.css), medium
-   screens 641–1024px, and large screens 1025px and up. These are
-   genuinely different arrangements, not just more columns of the
-   same pattern.
-   =========================================================== */
-
-/* Medium screens: 641px–1024px — a wide feature card up top,
-   then two-across pairs, closing with another wide card. */
+/* Discover grid: three layouts (320-640, 641-1024, 1025+). */
 @media (min-width: 641px) {
   .discover-grid {
-    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       "one one"
       "two three"
@@ -161,34 +31,15 @@
       "eight eight";
   }
 
-  /* Image hover effect — medium and large screens only, never on
-     the small/mobile layout. */
-  .discover-card__figure img {
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-
-  .discover-card:hover .discover-card__figure img {
-    transform: scale(1.06);
-    filter: brightness(1.05);
-  }
+  .discover-card__figure img { transition: transform 0.3s ease; }
+  .discover-card:hover .discover-card__figure img { transform: scale(1.06); }
 }
 
-/* Large screens: 1025px and up — an asymmetric mosaic with one
-   large feature tile, distinct from the medium-screen pairing. */
 @media (min-width: 1025px) {
   .discover-grid {
-    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
       "one one two three"
       "one one four five"
       "six seven eight eight";
-  }
-
-  .discover-card__figure {
-    aspect-ratio: 16 / 10;
-  }
-
-  .discover-card:nth-child(1) .discover-card__figure {
-    aspect-ratio: 16 / 12;
   }
 }

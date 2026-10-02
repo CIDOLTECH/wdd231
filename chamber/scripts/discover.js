@@ -28,7 +28,7 @@ function discoverCardTemplate(place, index) {
       </figure>
       <address>${place.address}</address>
       <p>${place.description}</p>
-      <button type="button" class="discover-card__link" data-url="${place.link}">Learn More</button>
+      <button type="button" class="button discover-card__link" data-url="${place.link}">Learn More</button>
     </article>
   `;
 }
