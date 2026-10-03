@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Our Talent Bench | CIDOL World Incorporation</title>
+  <meta name="description"
+    content="Apply to CIDOL World Incorporation's talent membership program across software engineering, cloud, data, and design tracks.">
+  <meta property="og:title" content="Join Our Talent Bench | CIDOL World Incorporation">
+  <meta property="og:description"
+    content="Apply to CIDOL World Incorporation's talent membership program across software engineering, cloud, data, and design tracks.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/project.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="" width="34" height="34">
+        CIDOL World Incorporation
+      </a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode">◐</button>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav"
+          aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <div class="container">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html">Client Directory</a></li>
+          <li><a href="join.html" aria-current="page">Join</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main id="main-content">
+
+    <section class="container">
+      <div class="section-heading">
+        <h1>Join the CIDOL World talent bench</h1>
+        <p>We keep a standing roster of engineers, designers, and analysts we call first when a client's project matches
+          their skills. Apply once and we'll reach out as relevant work comes up.</p>
+      </div>
+
+      <p id="returning-applicant" class="form-status success" hidden></p>
+
+      <h2 class="visually-hidden">Talent tracks</h2>
+      <div class="card-grid cols-3 mt-4" style="margin-bottom:2rem;">
+        <article class="card">
+          <h3>Software Engineering</h3>
+          <p>Backend, frontend, and full-stack roles across our client portfolio.</p>
+        </article>
+        <article class="card">
+          <h3>Cloud &amp; DevOps</h3>
+          <p>Infrastructure automation, migrations, and 24/7 reliability work.</p>
+        </article>
+        <article class="card">
+          <h3>Data &amp; Design</h3>
+          <p>Analytics, UX research, and interface design for enterprise products.</p>
+        </article>
+      </div>
+
+      <form id="talent-form" method="get" action="application-received.html" novalidate>
+        <fieldset>
+          <legend class="visually-hidden">Talent membership application</legend>
+          <input type="hidden" name="form-type" value="talent">
+
+          <div class="form-row">
+            <label for="full-name">Full name</label>
+            <input type="text" id="full-name" name="full-name" autocomplete="name">
+            <p class="error-msg" id="full-name-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email">
+            <p class="error-msg" id="email-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="track">Talent track</label>
+            <select id="track" name="track">
+              <option value="">Select a track&hellip;</option>
+              <option value="Software Engineering">Software Engineering</option>
+              <option value="Cloud &amp; DevOps">Cloud &amp; DevOps</option>
+              <option value="Data Science">Data Science</option>
+              <option value="UX/UI Design">UX/UI Design</option>
+              <option value="Project Management">Project Management</option>
+            </select>
+            <p class="error-msg" id="track-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="experience">Years of experience</label>
+            <input type="number" id="experience" name="experience" min="0" max="50" step="1">
+            <p class="error-msg" id="experience-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="portfolio">Portfolio or LinkedIn URL</label>
+            <input type="url" id="portfolio" name="portfolio" placeholder="https://">
+            <p class="hint">Share a portfolio, GitHub, or LinkedIn profile.</p>
+            <p class="error-msg" id="portfolio-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="notes">Anything else we should know? (optional)</label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-solid">Submit application</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </fieldset>
+      </form>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>CIDOL World Incorporation</h2>
+        <address>
+          100 Example Business Way<br>
+          Abuja, FCT 900211<br>
+          Nigeria<br>
+          <a href="mailto:info@cidolworld.example">info@cidolworld.example</a><br>
+          <a href="tel:+2348005550100">+234 800 555 0100</a>
+        </address>
+      </div>
+      <div>
+        <h2>Follow CIDOL World</h2>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="CIDOL World on Facebook">
+            <img src="images/social/facebook-icon.png" alt="Follow us on Facebook" width="18" height="18">
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="CIDOL World on LinkedIn">
+            <img src="images/social/linkedin-icon.png" alt="Connect with us on LinkedIn" width="18" height="18">
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="CIDOL World on X">
+            <img src="images/social/x-icon.png" alt="Follow us on X" width="18" height="18">
+          </a>
+          <a href="http://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="CIDOL World on YouTube">
+            <img src="images/social/youtube-icon.png" alt="Subscribe to our YouTube channel" width="18" height="18">
+          </a>
+        </div>
+      </div>
+      <div>
+        <h2>Project Info</h2>
+        <p>Peter Ella Bisong - WDD 231<br>
+          CIDOL World Incorporation<br>
+          <a href="references.html">References &amp; Citations</a>
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; <span id="current-year"></span> CIDOL World Incorporation. All rights reserved.
+      &nbsp;|&nbsp; <span id="last-modified"></span>
+    </div>
+  </footer>
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+</body>
+
+</html>

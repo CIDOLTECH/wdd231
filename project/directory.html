@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Directory | CIDOL World Incorporation</title>
+  <meta name="description"
+    content="Browse the businesses and public-sector partners CIDOL World Incorporation supports, filterable by industry.">
+  <meta property="og:title" content="Client Directory | CIDOL World Incorporation">
+  <meta property="og:description"
+    content="Browse the businesses and public-sector partners CIDOL World Incorporation supports, filterable by industry.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/project.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="" width="34" height="34">
+        CIDOL World Incorporation
+      </a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode">◐</button>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav"
+          aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <div class="container">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html" aria-current="page">Client Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main id="main-content">
+
+    <section class="container">
+      <div class="section-heading">
+        <h1>Client Directory</h1>
+        <p>Organizations across West Africa currently supported by CIDOL World Incorporation.</p>
+      </div>
+
+      <div class="form-row" style="max-width:280px;">
+        <label for="industry-filter">Filter by industry</label>
+        <select id="industry-filter"></select>
+      </div>
+
+      <div class="view-toggle" role="group" aria-label="Directory layout">
+        <button type="button" id="grid-view-btn" aria-pressed="true">Grid</button>
+        <button type="button" id="list-view-btn" aria-pressed="false">List</button>
+      </div>
+
+      <h2 class="visually-hidden">Directory results</h2>
+      <div id="directory-list" class="card-grid cols-3 view-grid" aria-live="polite"></div>
+    </section>
+
+    <dialog id="client-modal" aria-labelledby="client-modal-title">
+      <div class="modal-close-form">
+        <button type="button" id="modal-close-btn" class="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <h2 id="client-modal-title"></h2>
+      <div id="client-modal-body"></div>
+    </dialog>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>CIDOL World Incorporation</h2>
+        <address>
+          100 Example Business Way<br>
+          Abuja, FCT 900211<br>
+          Nigeria<br>
+          <a href="mailto:info@cidolworld.example">info@cidolworld.example</a><br>
+          <a href="tel:+2348005550100">+234 800 555 0100</a>
+        </address>
+      </div>
+      <div>
+        <h2>Follow CIDOL World</h2>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="CIDOL World on Facebook">
+            <img src="images/social/facebook-icon.png" alt="Follow us on Facebook" width="18" height="18">
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="CIDOL World on LinkedIn">
+            <img src="images/social/linkedin-icon.png" alt="Connect with us on LinkedIn" width="18" height="18">
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="CIDOL World on X">
+            <img src="images/social/x-icon.png" alt="Follow us on X" width="18" height="18">
+          </a>
+          <a href="http://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="CIDOL World on YouTube">
+            <img src="images/social/youtube-icon.png" alt="Subscribe to our YouTube channel" width="18" height="18">
+          </a>
+        </div>
+      </div>
+      <div>
+        <h2>Project Info</h2>
+        <p>Peter Ella Bisong - WDD 231<br>
+          CIDOL World Incorporation<br>
+          <a href="references.html">References &amp; Citations</a>
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; <span id="current-year"></span> CIDOL World Incorporation. All rights reserved.
+      &nbsp;|&nbsp; <span id="last-modified"></span>
+    </div>
+  </footer>
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/directory.js" type="module"></script>
+</body>
+
+</html>

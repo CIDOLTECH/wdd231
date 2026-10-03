@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Plan | CIDOL World Incorporation</title>
+  <meta name="description" content="WDD 231 individual project site plan for CIDOL World Incorporation.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/project.css">
+  <style>
+    /* Plan-document-only tweaks; kept out of base.css since this page isn't part of the live site nav */
+    .plan-wrap {
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: var(--space-4) var(--space-2);
+    }
+
+    .plan-wrap h2 {
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: 0.4rem;
+      margin-top: var(--space-5);
+    }
+
+    .plan-wrap ol,
+    .plan-wrap ul {
+      max-width: 72ch;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    .swatch {
+      width: 140px;
+    }
+
+    .swatch-color {
+      height: 60px;
+      border-radius: 6px;
+      border: 1px solid var(--color-border);
+    }
+
+    .swatch small {
+      display: block;
+      color: var(--color-text-muted);
+    }
+
+    .plan-wrap figure {
+      margin: 1.5rem 0;
+    }
+
+    .plan-wrap figcaption {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 0.5rem 0.7rem;
+      border: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--color-surface);
+    }
+  </style>
+</head>
+
+<body>
+  <main id="main-content" class="plan-wrap">
+    <header>
+      <p class="hint">WDD 231 &middot; Individual Project Site Plan</p>
+      <h1>CIDOL World Incorporation</h1>
+    </header>
+
+    <section>
+      <h2>1. Site Name</h2>
+      <p><strong>CIDOL World Incorporation</strong> &mdash; a multinational Information Technology firm headquartered in
+        Abuja, Nigeria. The name, paired with a globe-and-network wordmark, is the site's primary brand identifier.</p>
+    </section>
+
+    <section>
+      <h2>2. Site Purpose</h2>
+      <p>The site serves as a hub for multinational IT solutions, offering service and portfolio information alongside
+        career opportunities. It features a client project inquiry form (home page) and a talent membership form (Join
+        page) to support engagement with prospective clients and candidates.</p>
+    </section>
+
+    <section>
+      <h2>3. Target Market</h2>
+      <p>Small and medium IT firms and businesses in digital communications in the city of Abuja and surrounding areas.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Site Goals</h2>
+      <ul>
+        <li>Improve member engagement by providing valuable resources and networking opportunities.</li>
+        <li>Attract new IT and communication businesses and encourage economic development in the community.</li>
+        <li>Improve the visibility and reputation of CIDOL World as a trusted authority in local business and technology
+          matters.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. User Personas</h2>
+      <table>
+        <tr>
+          <th>Persona</th>
+          <th>Profile</th>
+          <th>Needs</th>
+        </tr>
+        <tr>
+          <td>Divine &mdash; Small Business Owner</td>
+          <td>25-year-old entrepreneur who owns a small IT firm in town.</td>
+          <td>Networking opportunities, business resources, and marketing support to grow her business.</td>
+        </tr>
+        <tr>
+          <td>Thomas &mdash; Corporate Executive</td>
+          <td>47-year-old executive at a large digital communication company.</td>
+          <td>Partnership opportunities, economic development resources, and networking with other business leaders.
+          </td>
+        </tr>
+        <tr>
+          <td>Francis &mdash; The New Resident</td>
+          <td>Recently moved into the community.</td>
+          <td>Business directories, event calendars, and community service opportunities.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>6. Scenarios</h2>
+      <ul>
+        <li>What is the best software solution for a growing small business?</li>
+        <li>Where can I find contact information for the company's directors?</li>
+        <li>A local business owner wants to join CIDOL World's talent network and visits the site to learn about
+          membership tracks and how to apply.</li>
+        <li>A community member is looking for upcoming events and workshops hosted by CIDOL World, and visits the Events
+          page to browse and plan to attend.</li>
+        <li>A visitor considering relocating to Abuja explores the Discover page for information on the local tech
+          scene, talent pipeline, and quality of life.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. SEO Plan</h2>
+      <ul>
+        <li>Use relevant IT-services and Abuja-based keywords in page titles, meta descriptions, and body content.</li>
+        <li>Verify the site on Google Business Profile once a live domain is secured.</li>
+        <li>Encourage inbound links from client organizations listed in the Client Directory.</li>
+        <li>Use descriptive, unique <code>&lt;title&gt;</code> and meta description tags plus Open Graph tags on every
+          page.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Design Brief</h2>
+      <p><strong>Primary color:</strong> Deep Indigo Navy &mdash; headers, footer, navigation, and headings, to read as
+        stable and trustworthy for an enterprise IT brand.<br>
+        <strong>Secondary color:</strong> Warm Amber/Gold &mdash; buttons, active states, and accents; provides a warm,
+        human contrast against the navy.<br>
+        <strong>Accent color:</strong> Deep Teal &mdash; links and secondary actions.<br>
+        <strong>Background color:</strong> Warm off-white &mdash; page background, keeping long-form content easy to
+        read.<br>
+        <strong>Text color:</strong> Near-black charcoal for body copy, meeting AA contrast against both the off-white
+        background and white cards.
+      </p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#16233f;"></div><small>Primary #16233f</small>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#c8871f;"></div><small>Secondary #c8871f</small>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#256b60;"></div><small>Accent #256b60</small>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#f6f5f1;border:1px solid #ccc;"></div><small>Background
+            #f6f5f1</small>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1f2430;"></div><small>Text #1f2430</small>
+        </div>
+      </div>
+      <p><strong>Font family:</strong> <em>Fraunces</em> (serif) for headings and display text, paired with
+        <em>Inter</em> (sans-serif) for body copy, navigation, and UI labels &mdash; a clear serif/sans pairing that
+        keeps the brand feeling editorial rather than generic SaaS. A light/dark theme toggle (top right of every page)
+        swaps the palette for low-light viewing, persisted with <code>localStorage</code>.</p>
+    </section>
+
+    <section>
+      <h2>9. Site Map</h2>
+      <figure>
+        <img src="images/site-map.webp"
+          alt="Site map diagram showing seven top-level pages: Home, Discover, Client Directory, Join, About, Podcast, and Events, all linked from the main navigation"
+          loading="lazy">
+        <figcaption>Seven top-level pages share one consistent navigation bar. &ldquo;Business Directory&rdquo; from the
+          original course example is relabeled &ldquo;Client Directory&rdquo; to fit CIDOL World's B2B context.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>10. Wireframe (Desktop)</h2>
+      <figure>
+        <img src="images/wireframe-desktop.webp"
+          alt="Desktop wireframe of the directory-style page: header with logo and nav, a page heading, grid/list toggle, and a three-column grid of record cards, footer with contact info and social icons"
+          loading="lazy">
+        <figcaption>The Client Directory page reuses this exact structure: header, grid/list toggle, a three-column card
+          grid, and a three-column footer.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>11. Wireframe (Mobile)</h2>
+      <figure>
+        <img src="images/wireframe-mobile.webp"
+          alt="Mobile wireframe showing the same directory page collapsed to a single column, with a hamburger menu icon in the header"
+          loading="lazy">
+        <figcaption>On narrow viewports the header collapses to a hamburger menu and the card grid stacks to one column,
+          matching this wireframe.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Planned JavaScript Interactions</h2>
+      <ul>
+        <li>Light/dark theme toggle with <code>localStorage</code> persistence (every page).</li>
+        <li>Mobile navigation open/close toggle (every page).</li>
+        <li>Dynamic footer: current year and document last-modified date.</li>
+        <li>Client Directory: grid/list view toggle and industry filter, rendered from an array of client objects using
+          template literals.</li>
+        <li>Join page: talent membership form validation, dynamic success message, and a returning-applicant greeting
+          read from <code>localStorage</code>.</li>
+      </ul>
+    </section>
+
+    <p class="hint">This plan may be adjusted as the final build in Stage 3 is completed.</p>
+    <p><a href="index.html">&larr; View the finished site</a></p>
+  </main>
+</body>
+
+</html>

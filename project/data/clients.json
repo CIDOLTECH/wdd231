@@ -1,0 +1,17 @@
+[
+  { "name": "Zaria Fintech Labs", "industry": "Fintech", "tagline": "Digital payments platform", "email": "hello@zariafintech.example", "phone": "+234 803 555 0142", "url": "zariafintech.example" },
+  { "name": "Kaduna Cloud Systems", "industry": "Cloud Services", "tagline": "Managed cloud infrastructure", "email": "contact@kadunacloud.example", "phone": "+234 802 555 0198", "url": "kadunacloud.example" },
+  { "name": "Nile Data Partners", "industry": "Data Analytics", "tagline": "Business intelligence & BI dashboards", "email": "info@niledata.example", "phone": "+234 805 555 0176", "url": "niledata.example" },
+  { "name": "Aso Rock Robotics", "industry": "Manufacturing", "tagline": "Industrial automation solutions", "email": "sales@asorockrobotics.example", "phone": "+234 806 555 0133", "url": "asorockrobotics.example" },
+  { "name": "Garki Health Systems", "industry": "Healthtech", "tagline": "Hospital records & telemedicine", "email": "support@garkihealth.example", "phone": "+234 807 555 0121", "url": "garkihealth.example" },
+  { "name": "Wuse Logistics Network", "industry": "Logistics", "tagline": "Fleet tracking & route optimization", "email": "ops@wuselogistics.example", "phone": "+234 808 555 0165", "url": "wuselogistics.example" },
+  { "name": "Millennium EdTech", "industry": "Education", "tagline": "Learning management platforms", "email": "team@millenniumedtech.example", "phone": "+234 809 555 0110", "url": "millenniumedtech.example" },
+  { "name": "Gwarinpa AgriTech", "industry": "Agriculture", "tagline": "Smart-farm sensor networks", "email": "hello@gwarinpaagritech.example", "phone": "+234 810 555 0187", "url": "gwarinpaagritech.example" },
+  { "name": "Unity Payments Collective", "industry": "Fintech", "tagline": "Shared payment rails for cooperatives", "email": "digital@unitypayments.example", "phone": "+234 811 555 0159", "url": "unitypayments.example" },
+  { "name": "Riverstone Insurance Tech", "industry": "Insurtech", "tagline": "Claims automation for regional insurers", "email": "hello@riverstoneinsure.example", "phone": "+234 812 555 0114", "url": "riverstoneinsure.example" },
+  { "name": "Daybreak Retail Systems", "industry": "Retail Tech", "tagline": "Point-of-sale & inventory for small chains", "email": "support@daybreakretail.example", "phone": "+234 813 555 0177", "url": "daybreakretail.example" },
+  { "name": "Lantern Media Group", "industry": "Media", "tagline": "Streaming infrastructure for local broadcasters", "email": "team@lanternmedia.example", "phone": "+234 814 555 0162", "url": "lanternmedia.example" },
+  { "name": "Ironwood Construction Analytics", "industry": "Construction Tech", "tagline": "Project-cost dashboards for site managers", "email": "info@ironwoodanalytics.example", "phone": "+234 815 555 0139", "url": "ironwoodanalytics.example" },
+  { "name": "Bright Path Microfinance", "industry": "Fintech", "tagline": "Lending platform for small-business loans", "email": "hello@brightpathmf.example", "phone": "+234 816 555 0185", "url": "brightpathmf.example" },
+  { "name": "Savanna Tourism Network", "industry": "Travel", "tagline": "Booking platform for regional eco-tours", "email": "contact@savannatourism.example", "phone": "+234 817 555 0128", "url": "savannatourism.example" }
+]
