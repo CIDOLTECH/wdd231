@@ -10,20 +10,30 @@
   <meta property="og:title" content="Submission Received | CIDOL World Incorporation">
   <meta property="og:description"
     content="Confirmation page showing the values submitted from CIDOL World Incorporation's forms, read from the URL with URLSearchParams.">
+  <meta name="author" content="Peter Ella Bisong">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CIDOL World Incorporation">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/project/application-received.html">
+  <meta property="og:image" content="https://cidoltech.github.io/wdd231/project/images/og-image.jpg">
+  <meta property="og:image:alt"
+    content="CIDOL World Incorporation logo with the tagline Enterprise IT built in Abuja, delivered worldwide">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/application-received.js" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="page-wrap header-inner">
       <a class="brand" href="index.html">
         <img src="images/logo.svg" alt="" width="34" height="34">
         CIDOL World Incorporation
@@ -35,7 +45,7 @@
       </div>
     </div>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <div class="container">
+      <div class="page-wrap">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="discover.html">Discover</a></li>
@@ -50,21 +60,21 @@
   </header>
   <main id="main-content">
 
-    <section class="container" style="padding-top:4rem;padding-bottom:4rem;">
+    <section class="page-wrap" style="padding-top:4rem;padding-bottom:4rem;">
       <div class="section-heading">
         <h1 id="received-heading">Submission Received</h1>
         <p id="received-lede">Here's exactly what was submitted, read back from the page URL.</p>
       </div>
 
-      <div id="submission-summary" class="card" style="max-width:640px;"></div>
+      <div id="submission-summary" class="panel" style="max-width:640px;"></div>
 
-      <p class="mt-4"><a href="index.html">&larr; Back to home</a> &nbsp;|&nbsp; <a href="join.html">Back to Join</a>
-      </p>
+      <p class="space-top"><a href="index.html">&larr; Back to home</a> &nbsp;|&nbsp; <a href="join.html">Back to
+          Join</a></p>
     </section>
 
   </main>
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="page-wrap footer-grid">
       <div>
         <h2>CIDOL World Incorporation</h2>
         <address>
@@ -94,21 +104,18 @@
       </div>
       <div>
         <h2>Project Info</h2>
-        <p>Peter Ella Bisong - WDD 231<br>
+        <p>WDD 231 Independent Project<br>
           CIDOL World Incorporation<br>
           <a href="references.html">References &amp; Citations</a>
           <a href="https://youtu.be/JVMNaJyEaK8" target="_blank" rel="noopener">Video Demonstration</a>
         </p>
       </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="page-wrap footer-bottom">
       &copy; <span id="current-year"></span> CIDOL World Incorporation. All rights reserved.
       &nbsp;|&nbsp; <span id="last-modified"></span>
     </div>
   </footer>
-  <script src="scripts/main.js" defer></script>
-  <script src="scripts/getdates.js" defer></script>
-  <script src="scripts/application-received.js" defer></script>
 </body>
 
 </html>

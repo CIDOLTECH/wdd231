@@ -7,23 +7,32 @@
   <title>Podcast | CIDOL World Incorporation</title>
   <meta name="description"
     content="Listen to CIDOL Signal, a podcast on running technology teams in Nigeria from CIDOL World Incorporation.">
+  <meta name="author" content="Peter Ella Bisong">
   <meta property="og:title" content="Podcast | CIDOL World Incorporation">
   <meta property="og:description"
     content="Listen to CIDOL Signal, a podcast on running technology teams in Nigeria from CIDOL World Incorporation.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CIDOL World Incorporation">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/project/podcast.html">
+  <meta property="og:image" content="https://cidoltech.github.io/wdd231/project/images/og-image.jpg">
+  <meta property="og:image:alt"
+    content="CIDOL World Incorporation logo with the tagline Enterprise IT built in Abuja, delivered worldwide">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="page-wrap header-inner">
       <a class="brand" href="index.html">
         <img src="images/logo.svg" alt="" width="34" height="34">
         CIDOL World Incorporation
@@ -35,7 +44,7 @@
       </div>
     </div>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <div class="container">
+      <div class="page-wrap">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="discover.html">Discover</a></li>
@@ -50,39 +59,39 @@
   </header>
   <main id="main-content">
 
-    <section class="container">
+    <section class="page-wrap">
       <div class="section-heading">
         <h1>CIDOL Signal Podcast</h1>
         <p>Monthly conversations on running technology teams in Nigeria, hosted by our Director of Engineering.</p>
       </div>
-      <h2 class="visually-hidden">Episode list</h2>
-      <div class="card-grid cols-3">
-        <article class="card">
+      <h2 class="screen-reader-text">Episode list</h2>
+      <div class="tile-grid three-up">
+        <article class="panel">
           <h3>Ep. 12 &mdash; Migrating a bank's core systems to the cloud</h3>
           <p class="client-meta">32 min &middot; with Zaria Fintech Labs</p>
           <p>What a six-month migration actually looks like, including the parts that went wrong.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Ep. 11 &mdash; Hiring your first in-house engineer</h3>
           <p class="client-meta">27 min &middot; with our Director of Talent</p>
           <p>A practical guide for founders making their first technical hire.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Ep. 10 &mdash; Building for spotty power and patchy internet</h3>
           <p class="client-meta">41 min &middot; field notes</p>
           <p>Engineering patterns that keep applications usable during outages.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Ep. 9 &mdash; Telemedicine at scale</h3>
           <p class="client-meta">35 min &middot; with Garki Health Systems</p>
           <p>Lessons from building patient record systems for rural clinics.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Ep. 8 &mdash; Smart-farm sensors on a shoestring budget</h3>
           <p class="client-meta">29 min &middot; with Gwarinpa AgriTech</p>
           <p>Low-cost hardware choices that still hold up in the field.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Ep. 7 &mdash; Security basics every small business skips</h3>
           <p class="client-meta">24 min &middot; solo episode</p>
           <p>The five cheapest fixes that stop most breaches before they start.</p>
@@ -92,7 +101,7 @@
 
   </main>
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="page-wrap footer-grid">
       <div>
         <h2>CIDOL World Incorporation</h2>
         <address>
@@ -122,20 +131,18 @@
       </div>
       <div>
         <h2>Project Info</h2>
-        <p>Peter Ella Bisong - WDD 231<br>
+        <p>WDD 231 Independent Project<br>
           CIDOL World Incorporation<br>
           <a href="references.html">References &amp; Citations</a>
           <a href="https://youtu.be/JVMNaJyEaK8" target="_blank" rel="noopener">Video Demonstration</a>
         </p>
       </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="page-wrap footer-bottom">
       &copy; <span id="current-year"></span> CIDOL World Incorporation. All rights reserved.
       &nbsp;|&nbsp; <span id="last-modified"></span>
     </div>
   </footer>
-  <script src="scripts/main.js" defer></script>
-  <script src="scripts/getdates.js" defer></script>
 </body>
 
 </html>

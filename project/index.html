@@ -10,20 +10,29 @@
   <meta property="og:title" content="Home | CIDOL World Incorporation">
   <meta property="og:description"
     content="CIDOL World Incorporation is an Abuja-based IT firm delivering cloud, custom software, and security services across Nigeria and West Africa.">
+  <meta name="author" content="Peter Ella Bisong">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CIDOL World Incorporation">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/project/index.html">
+  <meta property="og:image" content="https://cidoltech.github.io/wdd231/project/images/og-image.jpg">
+  <meta property="og:image:alt"
+    content="CIDOL World Incorporation logo with the tagline Enterprise IT built in Abuja, delivered worldwide">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="page-wrap header-inner">
       <a class="brand" href="index.html">
         <img src="images/logo.svg" alt="" width="34" height="34">
         CIDOL World Incorporation
@@ -35,7 +44,7 @@
       </div>
     </div>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <div class="container">
+      <div class="page-wrap">
         <ul>
           <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="discover.html">Discover</a></li>
@@ -51,15 +60,15 @@
   <main id="main-content">
 
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="page-wrap hero-grid">
         <div>
           <h1>Enterprise IT built in Abuja, delivered worldwide</h1>
           <p class="lede">CIDOL World Incorporation designs cloud infrastructure, custom software, and data platforms
             for growing businesses across Nigeria and beyond &mdash; backed by a talent bench that never stops learning.
           </p>
-          <div class="btn-group">
-            <a class="btn btn-primary" href="#services">Explore services</a>
-            <a class="btn btn-outline" href="#quote-form">Request a project quote</a>
+          <div class="action-row">
+            <a class="action action-gold" href="#services">Explore services</a>
+            <a class="action action-ghost" href="#quote-form">Request a project quote</a>
           </div>
         </div>
         <img class="hero-art" src="images/hero-network.svg"
@@ -68,43 +77,43 @@
       </div>
     </section>
 
-    <section id="services" class="container">
+    <section id="services" class="page-wrap">
       <div class="section-heading">
         <h2>What we build</h2>
         <p>Three practice areas cover the full lifecycle of a client's technology &mdash; from the first server to the
           last line of support.</p>
       </div>
-      <div class="card-grid cols-3">
-        <article class="card">
+      <div class="tile-grid three-up">
+        <article class="panel">
           <h3>Cloud &amp; Infrastructure</h3>
           <p>Migration, managed hosting, and always-on monitoring for teams that can't afford downtime.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Custom Software &amp; Data</h3>
           <p>Web apps, internal tools, and analytics dashboards built around how your team actually works.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Security &amp; Support</h3>
           <p>Threat monitoring, staff training, and a help desk that answers in minutes, not days.</p>
         </article>
       </div>
     </section>
 
-    <section class="bg-surface">
-      <div class="container">
+    <section class="surface-band">
+      <div class="page-wrap">
         <div class="section-heading">
           <h2>Why teams choose CIDOL World</h2>
         </div>
-        <div class="card-grid cols-3">
-          <div class="card text-center">
+        <div class="tile-grid three-up">
+          <div class="panel centered">
             <h3>14</h3>
             <p>Years operating out of our Abuja headquarters</p>
           </div>
-          <div class="card text-center">
+          <div class="panel centered">
             <h3>60+</h3>
             <p>Client organizations supported across West Africa</p>
           </div>
-          <div class="card text-center">
+          <div class="panel centered">
             <h3>99.9%</h3>
             <p>Average uptime across managed infrastructure</p>
           </div>
@@ -112,50 +121,50 @@
       </div>
     </section>
 
-    <section class="container">
+    <section class="page-wrap">
       <div class="section-heading">
         <h2>Recently onboarded clients</h2>
         <p>A small sample from our <a href="directory.html">full client directory</a>.</p>
       </div>
-      <div class="card-grid cols-3">
-        <article class="card">
+      <div class="tile-grid three-up">
+        <article class="panel">
           <h3>Zaria Fintech Labs</h3>
           <p class="client-meta">Digital payments platform &mdash; Fintech</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Garki Health Systems</h3>
           <p class="client-meta">Hospital records &amp; telemedicine &mdash; Healthtech</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Gwarinpa AgriTech</h3>
           <p class="client-meta">Smart-farm sensor networks &mdash; Agriculture</p>
         </article>
       </div>
     </section>
 
-    <section class="bg-surface" id="quote-form">
-      <div class="container">
+    <section class="surface-band" id="quote-form">
+      <div class="page-wrap">
         <div class="section-heading">
           <h2>Request a project quote</h2>
           <p>Tell us about your project and a solutions lead will follow up within two business days.</p>
         </div>
         <form action="application-received.html" method="get">
           <fieldset>
-            <legend class="visually-hidden">Project inquiry</legend>
+            <legend class="screen-reader-text">Project inquiry</legend>
             <input type="hidden" name="form-type" value="quote">
-            <div class="form-row">
+            <div class="form-field">
               <label for="quote-name">Full name</label>
               <input type="text" id="quote-name" name="quote-name" required autocomplete="name">
             </div>
-            <div class="form-row">
+            <div class="form-field">
               <label for="quote-company">Company</label>
               <input type="text" id="quote-company" name="quote-company" required autocomplete="organization">
             </div>
-            <div class="form-row">
+            <div class="form-field">
               <label for="quote-email">Email address</label>
               <input type="email" id="quote-email" name="quote-email" required autocomplete="email">
             </div>
-            <div class="form-row">
+            <div class="form-field">
               <label for="quote-type">Project type</label>
               <select id="quote-type" name="quote-type" required>
                 <option value="">Select one&hellip;</option>
@@ -165,11 +174,11 @@
                 <option value="other">Something else</option>
               </select>
             </div>
-            <div class="form-row">
+            <div class="form-field">
               <label for="quote-message">Project details</label>
               <textarea id="quote-message" name="quote-message" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-solid">Send inquiry</button>
+            <button type="submit" class="action action-teal">Send inquiry</button>
           </fieldset>
         </form>
       </div>
@@ -177,7 +186,7 @@
 
   </main>
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="page-wrap footer-grid">
       <div>
         <h2>CIDOL World Incorporation</h2>
         <address>
@@ -207,20 +216,18 @@
       </div>
       <div>
         <h2>Project Info</h2>
-        <p>Peter Ella Bisong - WDD 231<br>
+        <p>WDD 231 Independent Project<br>
           CIDOL World Incorporation<br>
           <a href="references.html">References &amp; Citations</a>
           <a href="https://youtu.be/JVMNaJyEaK8" target="_blank" rel="noopener">Video Demonstration</a>
         </p>
       </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="page-wrap footer-bottom">
       &copy; <span id="current-year"></span> CIDOL World Incorporation. All rights reserved.
       &nbsp;|&nbsp; <span id="last-modified"></span>
     </div>
   </footer>
-  <script src="scripts/main.js" defer></script>
-  <script src="scripts/getdates.js" defer></script>
 </body>
 
 </html>

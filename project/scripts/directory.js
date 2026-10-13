@@ -25,7 +25,7 @@ function clientCardTemplate(client) {
     .join("");
 
   return `
-    <article class="card client-card" data-industry="${client.industry}">
+    <article class="panel client-card" data-industry="${client.industry}">
       <div class="logo-badge" aria-hidden="true">${initials}</div>
       <div>
         <h3>${client.name}</h3>
@@ -34,7 +34,7 @@ function clientCardTemplate(client) {
         <p class="client-meta"><strong>Email:</strong> ${client.email}</p>
         <p class="client-meta"><strong>Phone:</strong> ${client.phone}</p>
         <p class="client-meta"><strong>URL:</strong> ${client.url}</p>
-        <button type="button" class="btn btn-solid view-details-btn" data-name="${client.name}">
+        <button type="button" class="action action-teal view-details-btn" data-name="${client.name}">
           View details
         </button>
       </div>

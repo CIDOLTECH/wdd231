@@ -10,20 +10,30 @@
   <meta property="og:title" content="Join Our Talent Bench | CIDOL World Incorporation">
   <meta property="og:description"
     content="Apply to CIDOL World Incorporation's talent membership program across software engineering, cloud, data, and design tracks.">
+  <meta name="author" content="Peter Ella Bisong">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CIDOL World Incorporation">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/project/join.html">
+  <meta property="og:image" content="https://cidoltech.github.io/wdd231/project/images/og-image.jpg">
+  <meta property="og:image:alt"
+    content="CIDOL World Incorporation logo with the tagline Enterprise IT built in Abuja, delivered worldwide">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/join.js" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="page-wrap header-inner">
       <a class="brand" href="index.html">
         <img src="images/logo.svg" alt="" width="34" height="34">
         CIDOL World Incorporation
@@ -35,7 +45,7 @@
       </div>
     </div>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <div class="container">
+      <div class="page-wrap">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="discover.html">Discover</a></li>
@@ -50,7 +60,7 @@
   </header>
   <main id="main-content">
 
-    <section class="container">
+    <section class="page-wrap">
       <div class="section-heading">
         <h1>Join the CIDOL World talent bench</h1>
         <p>We keep a standing roster of engineers, designers, and analysts we call first when a client's project matches
@@ -59,17 +69,17 @@
 
       <p id="returning-applicant" class="form-status success" hidden></p>
 
-      <h2 class="visually-hidden">Talent tracks</h2>
-      <div class="card-grid cols-3 mt-4" style="margin-bottom:2rem;">
-        <article class="card">
+      <h2 class="screen-reader-text">Talent tracks</h2>
+      <div class="tile-grid three-up space-top" style="margin-bottom:2rem;">
+        <article class="panel">
           <h3>Software Engineering</h3>
           <p>Backend, frontend, and full-stack roles across our client portfolio.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Cloud &amp; DevOps</h3>
           <p>Infrastructure automation, migrations, and 24/7 reliability work.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Data &amp; Design</h3>
           <p>Analytics, UX research, and interface design for enterprise products.</p>
         </article>
@@ -77,22 +87,22 @@
 
       <form id="talent-form" method="get" action="application-received.html" novalidate>
         <fieldset>
-          <legend class="visually-hidden">Talent membership application</legend>
+          <legend class="screen-reader-text">Talent membership application</legend>
           <input type="hidden" name="form-type" value="talent">
 
-          <div class="form-row">
+          <div class="form-field">
             <label for="full-name">Full name</label>
             <input type="text" id="full-name" name="full-name" autocomplete="name">
             <p class="error-msg" id="full-name-error"></p>
           </div>
 
-          <div class="form-row">
+          <div class="form-field">
             <label for="email">Email address</label>
             <input type="email" id="email" name="email" autocomplete="email">
             <p class="error-msg" id="email-error"></p>
           </div>
 
-          <div class="form-row">
+          <div class="form-field">
             <label for="track">Talent track</label>
             <select id="track" name="track">
               <option value="">Select a track&hellip;</option>
@@ -105,25 +115,25 @@
             <p class="error-msg" id="track-error"></p>
           </div>
 
-          <div class="form-row">
+          <div class="form-field">
             <label for="experience">Years of experience</label>
             <input type="number" id="experience" name="experience" min="0" max="50" step="1">
             <p class="error-msg" id="experience-error"></p>
           </div>
 
-          <div class="form-row">
+          <div class="form-field">
             <label for="portfolio">Portfolio or LinkedIn URL</label>
             <input type="url" id="portfolio" name="portfolio" placeholder="https://">
             <p class="hint">Share a portfolio, GitHub, or LinkedIn profile.</p>
             <p class="error-msg" id="portfolio-error"></p>
           </div>
 
-          <div class="form-row">
+          <div class="form-field">
             <label for="notes">Anything else we should know? (optional)</label>
             <textarea id="notes" name="notes" rows="3"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-solid">Submit application</button>
+          <button type="submit" class="action action-teal">Submit application</button>
           <p class="form-status" id="form-status" role="status"></p>
         </fieldset>
       </form>
@@ -131,7 +141,7 @@
 
   </main>
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="page-wrap footer-grid">
       <div>
         <h2>CIDOL World Incorporation</h2>
         <address>
@@ -161,21 +171,18 @@
       </div>
       <div>
         <h2>Project Info</h2>
-        <p>Peter Ella Bisong - WDD 231<br>
+        <p>WDD 231 Independent Project<br>
           CIDOL World Incorporation<br>
           <a href="references.html">References &amp; Citations</a>
           <a href="https://youtu.be/JVMNaJyEaK8" target="_blank" rel="noopener">Video Demonstration</a>
         </p>
       </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="page-wrap footer-bottom">
       &copy; <span id="current-year"></span> CIDOL World Incorporation. All rights reserved.
       &nbsp;|&nbsp; <span id="last-modified"></span>
     </div>
   </footer>
-  <script src="scripts/main.js" defer></script>
-  <script src="scripts/getdates.js" defer></script>
-  <script src="scripts/join.js" defer></script>
 </body>
 
 </html>

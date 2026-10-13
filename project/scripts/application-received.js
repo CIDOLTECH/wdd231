@@ -75,7 +75,7 @@ function renderSubmission() {
     .map((field) => {
       const rawValue = params.get(field.key);
       return `
-        <div class="form-row">
+        <div class="form-field">
           <p class="client-meta"><strong>${field.label}</strong></p>
           <p>${escapeHtml(rawValue)}</p>
         </div>

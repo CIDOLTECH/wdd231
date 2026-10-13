@@ -7,23 +7,32 @@
   <title>Discover Abuja | CIDOL World Incorporation</title>
   <meta name="description"
     content="Explore why Abuja, Nigeria is a strong base for IT talent, infrastructure, and business growth, from CIDOL World Incorporation.">
+  <meta name="author" content="Peter Ella Bisong">
   <meta property="og:title" content="Discover Abuja | CIDOL World Incorporation">
   <meta property="og:description"
     content="Explore why Abuja, Nigeria is a strong base for IT talent, infrastructure, and business growth, from CIDOL World Incorporation.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CIDOL World Incorporation">
+  <meta property="og:url" content="https://cidoltech.github.io/wdd231/project/discover.html">
+  <meta property="og:image" content="https://cidoltech.github.io/wdd231/project/images/og-image.jpg">
+  <meta property="og:image:alt"
+    content="CIDOL World Incorporation logo with the tagline Enterprise IT built in Abuja, delivered worldwide">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="page-wrap header-inner">
       <a class="brand" href="index.html">
         <img src="images/logo.svg" alt="" width="34" height="34">
         CIDOL World Incorporation
@@ -35,7 +44,7 @@
       </div>
     </div>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <div class="container">
+      <div class="page-wrap">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="discover.html" aria-current="page">Discover</a></li>
@@ -51,35 +60,35 @@
   <main id="main-content">
 
     <section class="hero">
-      <div class="container">
+      <div class="page-wrap">
         <h1>Discover why Abuja is Nigeria&rsquo;s fastest-growing tech hub</h1>
         <p class="lede">Thinking about relocating a team, opening a satellite office, or just curious what it's like to
           build here? Here's what newcomers and partners ask us most.</p>
       </div>
     </section>
 
-    <section class="container">
+    <section class="page-wrap">
       <div class="section-heading">
         <h2>The numbers</h2>
       </div>
-      <div class="card-grid cols-3">
-        <div class="card text-center">
+      <div class="tile-grid three-up">
+        <div class="panel centered">
           <h3>UTC+1</h3>
           <p>One time zone from London, three from most US East Coast teams &mdash; easy overlap for daily standups.</p>
         </div>
-        <div class="card text-center">
+        <div class="panel centered">
           <h3>25+</h3>
           <p>Universities and technical colleges within a 200km radius feeding local hiring pipelines.</p>
         </div>
-        <div class="card text-center">
+        <div class="panel centered">
           <h3>4</h3>
           <p>Major fibre providers serving the Central Business District, keeping latency low for cloud workloads.</p>
         </div>
       </div>
     </section>
 
-    <section class="bg-surface">
-      <div class="container">
+    <section class="surface-band">
+      <div class="page-wrap">
         <div class="section-heading">
           <h2>Talent pipeline</h2>
           <p>CIDOL World partners with three regional coding bootcamps and two university computer-science departments,
@@ -97,22 +106,22 @@
       </div>
     </section>
 
-    <section class="container">
+    <section class="page-wrap">
       <div class="section-heading">
         <h2>Doing business here</h2>
         <p>Frequently asked questions from prospective partners.</p>
       </div>
-      <div class="card-grid cols-3">
-        <article class="card">
+      <div class="tile-grid three-up">
+        <article class="panel">
           <h3>Is it easy to hire locally?</h3>
           <p>Yes &mdash; our staffing partners typically fill mid-level engineering roles within four to six weeks.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>What about power and connectivity?</h3>
           <p>Our data center partners run redundant generators and dual fibre uplinks, keeping managed infrastructure at
             99.9% uptime.</p>
         </article>
-        <article class="card">
+        <article class="panel">
           <h3>Can we visit before committing?</h3>
           <p>Absolutely &mdash; request a site tour through our <a href="index.html#quote-form">project inquiry
               form</a>.</p>
@@ -122,7 +131,7 @@
 
   </main>
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="page-wrap footer-grid">
       <div>
         <h2>CIDOL World Incorporation</h2>
         <address>
@@ -159,13 +168,11 @@
         </p>
       </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="page-wrap footer-bottom">
       &copy; <span id="current-year"></span> CIDOL World Incorporation. All rights reserved.
       &nbsp;|&nbsp; <span id="last-modified"></span>
     </div>
   </footer>
-  <script src="scripts/main.js" defer></script>
-  <script src="scripts/getdates.js" defer></script>
 </body>
 
 </html>

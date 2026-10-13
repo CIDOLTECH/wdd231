@@ -1,9 +1,12 @@
 /* =========================================================================
-   CIDOL WORLD INCORPORATION — base.css
-   Mobile-first, responsive, accessible stylesheet.
-   Course objective 1: valid, semantic, maintainable CSS using custom
-   properties for theming instead of hard-coded/duplicated values.
+   CIDOL WORLD INCORPORATION — project.css
+   The project's custom stylesheet (loaded after normalize.css).
+   Part 1 (MOBILE): design tokens, typography, and every component laid out
+   for small screens. Part 2 (DESKTOP): min-width overrides for larger
+   viewports. All styling is hand-written custom CSS — no frameworks.
    ========================================================================= */
+
+/* ########################  PART 1 — MOBILE (base)  ######################## */
 
 /* ---------- Design tokens (Objective 1: maintainable theming) ---------- */
 :root {
@@ -12,7 +15,7 @@
   --color-primary-light: #26375e;
   --color-secondary: #c8871f;    /* amber/gold — CTAs, active states, accents */
   --color-accent: #256b60;       /* deep teal — links, icons, secondary actions */
-  --color-solid-btn-bg: #1d554d; /* fixed dark teal for .btn-solid — stays AA-compliant with white text in both themes */
+  --color-solid-btn-bg: #1d554d; /* fixed dark teal for .action-teal — stays AA-compliant with white text in both themes */
   --color-bg: #f6f5f1;           /* warm off-white page background */
   --color-surface: #ffffff;      /* card / panel background */
   --color-border: #dcdad2;
@@ -37,7 +40,7 @@
   --shadow: 0 1px 3px rgba(22, 35, 63, 0.12);
 }
 
-/* Dark theme — toggled via [data-theme="dark"] on <html> from scripts/theme.js */
+/* Dark theme — toggled via [data-theme="dark"] on <html> from scripts/main.js */
 :root[data-theme="dark"] {
   --color-primary: #1c2942;
   --color-primary-light: #2c3c5c;
@@ -51,20 +54,15 @@
   --color-focus: #e7b45a;
 }
 
-/* ---------- Reset ---------- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
+/* ---------- Base page styles ---------- */
 html { scroll-behavior: smooth; }
 body {
-  margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-img { max-width: 100%; display: block; }
 a { color: var(--color-accent); }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -102,7 +100,7 @@ select:focus-visible {
 }
 .skip-link:focus { left: 0; }
 
-.container {
+.page-wrap {
   width: 100%;
   max-width: var(--max-width);
   margin-left: auto;
@@ -111,7 +109,7 @@ select:focus-visible {
   padding-right: var(--space-2);
 }
 
-/* ---------- Header / nav ---------- */
+/* ---------- Header / nav (mobile: hamburger menu) ---------- */
 .site-header {
   background: var(--color-primary);
   color: #fff;
@@ -192,16 +190,6 @@ select:focus-visible {
   color: var(--color-secondary);
 }
 
-@media (min-width: 768px) {
-  .nav-toggle { display: none; }
-  .main-nav {
-    display: flex !important;
-    flex-direction: row;
-    border-top: none;
-  }
-  .main-nav ul { flex-direction: row; padding: 0; gap: 0.2rem; }
-}
-
 /* ---------- Hero ---------- */
 .hero {
   padding-top: var(--space-5);
@@ -217,12 +205,9 @@ select:focus-visible {
 .hero h1 { color: #fff; font-size: clamp(2rem, 5vw, 3rem); }
 .hero p.lede { color: #dfe3ee; font-size: 1.1rem; max-width: 52ch; }
 .hero-art { width: 100%; }
-@media (min-width: 900px) {
-  .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
-}
 
 /* ---------- Buttons ---------- */
-.btn {
+.action {
   display: inline-block;
   font-family: var(--font-body);
   font-weight: 600;
@@ -233,37 +218,35 @@ select:focus-visible {
   cursor: pointer;
   font-size: 1rem;
 }
-.btn-primary { background: var(--color-secondary); color: #16233f; }
-.btn-primary:hover { background: #b87a19; }
-.btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.6); }
-.btn-outline:hover { border-color: #fff; }
-.btn-solid { background: var(--color-solid-btn-bg); color: #fff; }
-.btn-solid:hover { background: #164138; }
-.btn-group { display: flex; gap: var(--space-1); flex-wrap: wrap; }
+.action-gold { background: var(--color-secondary); color: #16233f; }
+.action-gold:hover { background: #b87a19; }
+.action-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.6); }
+.action-ghost:hover { border-color: #fff; }
+.action-teal { background: var(--color-solid-btn-bg); color: #fff; }
+.action-teal:hover { background: #164138; }
+.action-row { display: flex; gap: var(--space-1); flex-wrap: wrap; }
 
 /* ---------- Sections ---------- */
 section { padding-top: var(--space-4); padding-bottom: var(--space-4); }
 .section-heading { margin-bottom: var(--space-3); }
 .section-heading p { color: var(--color-text-muted); }
-.bg-surface { background: var(--color-surface); }
+.surface-band { background: var(--color-surface); }
 
-/* ---------- Cards / grid ---------- */
-.card-grid {
+/* ---------- Cards / grid (mobile: single column) ---------- */
+.tile-grid {
   display: grid;
   gap: var(--space-3);
   grid-template-columns: 1fr;
 }
-@media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1000px) { .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
 
-.card {
+.panel {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: var(--space-3);
   box-shadow: var(--shadow);
 }
-.card h3 { margin-bottom: 0.4rem; }
+.panel h3 { margin-bottom: 0.4rem; }
 
 /* ---------- Directory ---------- */
 .view-toggle { display: flex; gap: 0.5rem; margin-bottom: var(--space-3); }
@@ -304,23 +287,42 @@ section { padding-top: var(--space-4); padding-bottom: var(--space-4); }
 
 /* ---------- Modal dialog ---------- */
 dialog#client-modal {
+  max-width: 480px;
+  width: min(90vw, 480px);
   border: none;
   border-radius: var(--radius);
   padding: var(--space-3);
-  max-width: 480px;
-  width: min(90vw, 480px);
-  color: var(--color-text);
   background: var(--color-surface);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  color: var(--color-text);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
 }
 dialog#client-modal::backdrop {
   background: rgba(16, 20, 31, 0.55);
 }
-dialog#client-modal[open] { display: block; }
+dialog#client-modal h2 {
+  margin-top: 0;
+  padding-right: var(--space-4);
+}
+.dialog-close-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 -1.6rem;
+}
+.dialog-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius);
+}
+.dialog-close:hover { color: var(--color-text); }
 
 /* ---------- Forms ---------- */
 form { max-width: 640px; }
-.form-row { margin-bottom: var(--space-2); }
+.form-field { margin-bottom: var(--space-2); }
 label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
 input, textarea, select {
   width: 100%;
@@ -329,7 +331,6 @@ input, textarea, select {
   border-radius: var(--radius);
   background: var(--color-surface);
   color: var(--color-text);
-  font-family: inherit;
   font-size: 1rem;
 }
 .hint { font-size: 0.85rem; color: var(--color-text-muted); }
@@ -348,42 +349,7 @@ input, textarea, select {
 .form-status.success { background: #e3f3ec; color: #1d554d; border: 1px solid #1d554d; }
 :root[data-theme="dark"] .form-status.success { background: #133027; color: #9fe3ce; }
 
-/* ---------- Modal dialog ---------- */
-dialog#client-modal {
-  max-width: 480px;
-  width: 90vw;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--space-3);
-  background: var(--color-surface);
-  color: var(--color-text);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-}
-dialog#client-modal::backdrop {
-  background: rgba(16, 20, 31, 0.55);
-}
-dialog#client-modal h2 {
-  margin-top: 0;
-  padding-right: var(--space-4);
-}
-.modal-close-form {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0 0 -1.6rem;
-}
-.modal-close {
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--color-text-muted);
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius);
-}
-.modal-close:hover { color: var(--color-text); }
-
-/* ---------- Footer ---------- */
+/* ---------- Footer (mobile: stacked single column) ---------- */
 .site-footer {
   background: var(--color-primary);
   color: #dfe3ee;
@@ -396,7 +362,6 @@ dialog#client-modal h2 {
   gap: var(--space-3);
   grid-template-columns: 1fr;
 }
-@media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
 .site-footer h2 { color: #fff; font-size: 1.05rem; }
 .site-footer a { color: #cfe3de; }
 .social-links { display: flex; gap: 0.7rem; margin-top: var(--space-1); }
@@ -413,15 +378,48 @@ dialog#client-modal h2 {
   color: #a9b0c3;
 }
 
-/* Utility */
-.visually-hidden {
+/* ---------- Utility ---------- */
+.screen-reader-text {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap;
 }
-.text-center { text-align: center; }
-.mt-4 { margin-top: var(--space-4); }
+.centered { text-align: center; }
+.space-top { margin-top: var(--space-4); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ########################  PART 2 — DESKTOP  ########################
+   Larger-viewport overrides for the components defined above.
+   ================================================================== */
+
+/* ---------- Header / nav: CSS Flex row nav replaces the hamburger ---------- */
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+  .main-nav {
+    display: flex !important;
+    flex-direction: row;
+    border-top: none;
+  }
+  .main-nav ul { flex-direction: row; padding: 0; gap: 0.2rem; }
+}
+
+/* ---------- Hero: side-by-side layout ---------- */
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+}
+
+/* ---------- Cards / grid ---------- */
+@media (min-width: 640px) {
+  .tile-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .tile-grid.three-up { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- Footer: three columns ---------- */
+@media (min-width: 768px) {
+  .footer-grid { grid-template-columns: repeat(3, 1fr); }
 }
